@@ -25,7 +25,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.timeline-notes:compose-mathjax:Tag'
+    implementation 'com.github.timeline-notes:compose-mathjax:1.0.0'
 }
 ```
 
