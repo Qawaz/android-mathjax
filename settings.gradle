@@ -17,6 +17,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "ParseField"
+rootProject.name = "Android-MathJax"
 include ':app'
-include ':Blockly'
+include ':mathjax'
