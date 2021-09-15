@@ -1,9 +1,6 @@
 # Compose Math Jax
 
-It uses a web view , When your latex changes , a typeset function is called inside the web view to
-typeset the latex and convert it to svg format to display.
-
-Moreover it uses Math Jax 3.2
+It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
 
 ## Demo
 
@@ -25,32 +22,33 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.timeline-notes:compose-mathjax:1.0.0'
+    implementation 'com.github.timeline-notes:compose-mathjax:2.0.0'
 }
 ```
 
 ## Usage
 
 ```kotlin
-var latex by remember {
-    mutableStateOf(
-        "\$\$ x = y + 10 \$\$\n" +
-                "\n" +
-                "\$\$ 10 * 30 + 40 \\ frac{3}{4} sP/q \$\$"
-    )
+var latex by remember { mutableStateOf(latexString) }
+val context = LocalContext.current
+var imageBitmap by remember {
+    mutableStateOf(latexImageBitmap(context, latex))
 }
 
-MathJax(
-    latex = latex,
-    color = MaterialTheme.colors.onBackground, //color of math jax
-)
-
-TextField(
-    modifier = Modifier.fillMaxWidth(),
-    value = latex,
-    onValueChange = {
-        latex = it
-    },
-    colors = TextFieldDefaults.textFieldColors(textColor = MaterialTheme.colors.onBackground)
-)
+Column(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
+    Image(
+        bitmap = imageBitmap,
+        contentDescription = null
+    )
+    TextField(
+        value = latex,
+        onValueChange = {
+            latex = it
+            kotlin.runCatching { latexImageBitmap(context = context, latex) }
+                .getOrNull()?.let { bitmap ->
+                    imageBitmap = bitmap
+                }
+        }
+    )
+}
 ```
