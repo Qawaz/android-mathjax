@@ -2,10 +2,6 @@
 
 It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
 
-## Demo
-
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/42442700/132947732-9d302d3e-ab99-4a12-96ab-9ecec25bb359.gif)
-
 ## Setup
 
 #### Step 1. Add the JitPack repository to your build file
@@ -52,3 +48,7 @@ Column(modifier = Modifier.background(color = MaterialTheme.colors.background)) 
     )
 }
 ```
+
+## Demo
+
+![Screenshot_1631722134](https://user-images.githubusercontent.com/42442700/133469585-bb5a0a9e-5c47-4cda-806a-054c7a9ef22d.png)
