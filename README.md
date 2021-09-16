@@ -29,10 +29,10 @@ considering those assets will available in the context
 
 ```groovy
 // for Cyrillic symbols
-implementation 'ru.noties:jlatexmath-android-font-cyrillic:${version}'
+implementation 'ru.noties:jlatexmath-android-font-cyrillic:v0.2.0'
 
 // for Greek symbols 
-implementation 'ru.noties:jlatexmath-android-font-greek:${version}'
+implementation 'ru.noties:jlatexmath-android-font-greek:v0.2.0'
 ```
 
 ## Usage
