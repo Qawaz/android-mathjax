@@ -22,6 +22,19 @@ dependencies {
 }
 ```
 
+#### Additional
+
+These dependencies will add the assets required for Cyrillic & Greek symbols , I have't really tested the projects but it should work just fine
+considering those assets will available in the context
+
+```groovy
+// for Cyrillic symbols
+implementation 'ru.noties:jlatexmath-android-font-cyrillic:${version}'
+
+// for Greek symbols 
+implementation 'ru.noties:jlatexmath-android-font-greek:${version}'
+```
+
 ## Usage
 
 ```kotlin
