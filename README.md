@@ -4,7 +4,7 @@ It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.co
 
 ## Demo
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/42442700/132947732-9d302d3e-ab99-4a12-96ab-9ecec25bb359.gif)
+![Screenshot_1631722134](https://user-images.githubusercontent.com/42442700/133469585-bb5a0a9e-5c47-4cda-806a-054c7a9ef22d.png)
 
 ## Setup
 
@@ -24,6 +24,19 @@ allprojects {
 dependencies {
     implementation 'com.github.timeline-notes:compose-mathjax:2.0.0'
 }
+```
+
+#### Additional
+
+These dependencies will add the assets required for Cyrillic & Greek symbols , I have't really tested the projects but it should work just fine
+considering those assets will available in the context
+
+```groovy
+// for Cyrillic symbols
+implementation 'ru.noties:jlatexmath-android-font-cyrillic:v0.2.0'
+
+// for Greek symbols 
+implementation 'ru.noties:jlatexmath-android-font-greek:v0.2.0'
 ```
 
 ## Usage
@@ -52,3 +65,4 @@ Column(modifier = Modifier.background(color = MaterialTheme.colors.background)) 
     )
 }
 ```
+
