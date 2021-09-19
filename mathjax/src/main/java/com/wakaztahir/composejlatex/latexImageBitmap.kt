@@ -10,6 +10,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.graphics.drawable.toBitmap
 import org.scilab.forge.jlatexmath.ParseException
 
+enum class LatexAlignment(val value: Int) {
+    Start(0),
+    Center(1),
+    End(2)
+}
+
 /**
  * This converts [latex] to [ImageBitmap]
  * This can throw [ParseException] so make sure your latex works
@@ -22,13 +28,15 @@ fun latexImageBitmap(
     latex: String,
     background: Color = Color.Unspecified,
     textSize: Float = 48f,
-    color: Color = Color.Unspecified
+    color: Color = Color.Unspecified,
+    alignment: LatexAlignment = LatexAlignment.Start,
 ) = latexImageBitmap(
     context = LocalContext.current,
     latex = latex,
     background = background,
     textSize = textSize,
-    color = color
+    color = color,
+    alignment = alignment
 )
 
 /**
@@ -41,7 +49,8 @@ fun latexImageBitmap(
     latex: String,
     background: Color = Color.Unspecified,
     textSize: Float = 48f,
-    color: Color = Color.Unspecified
+    color: Color = Color.Unspecified,
+    alignment: LatexAlignment = LatexAlignment.Start,
 ): ImageBitmap {
 
     JLatexMathAndroid.init(context)
@@ -53,6 +62,7 @@ fun latexImageBitmap(
         if (color != Color.Unspecified) {
             color(color.toViewColor())
         }
+        align(alignment.value)
         textSize(textSize)
     }.build().toBitmap().asImageBitmap()
 }

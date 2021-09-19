@@ -12,8 +12,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.platform.LocalContext
+import com.wakaztahir.composejlatex.LatexAlignment
 import com.wakaztahir.composejlatex.latexImageBitmap
 import com.wakaztahir.example.ui.theme.ComposeMathJaxTheme
 
@@ -39,11 +42,12 @@ class MainActivity : ComponentActivity() {
                     var latex by remember { mutableStateOf(latexString) }
                     val context = LocalContext.current
                     var imageBitmap by remember {
-                        mutableStateOf(latexImageBitmap(context, latex))
+                        mutableStateOf(latexImageBitmap(context, latex,alignment = LatexAlignment.Start))
                     }
 
                     Column(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
                         Image(
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
                             bitmap = imageBitmap,
                             contentDescription = null
                         )
@@ -51,7 +55,7 @@ class MainActivity : ComponentActivity() {
                             value = latex,
                             onValueChange = {
                                 latex = it
-                                kotlin.runCatching { latexImageBitmap(context = context, latex) }
+                                kotlin.runCatching { latexImageBitmap(context = context, latex,alignment = LatexAlignment.Start) }
                                     .getOrNull()?.let { bitmap ->
                                         imageBitmap = bitmap
                                     }
