@@ -1,6 +1,7 @@
 # Compose Math Jax
 
-It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
+It uses JLatexMath , Its a fork
+of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
 
 ## Demo
 
@@ -22,14 +23,15 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.timeline-notes:compose-mathjax:2.0.0'
+    implementation 'com.github.timeline-notes:compose-mathjax:2.0.1'
 }
 ```
 
 #### Additional
 
-These dependencies will add the assets required for Cyrillic & Greek symbols , I have't really tested the projects but it should work just fine
-considering those assets will available in the context
+These dependencies will add the assets required for Cyrillic & Greek symbols , I have't really
+tested the projects but it should work just fine considering those assets will available in the
+context
 
 ```groovy
 // for Cyrillic symbols
@@ -40,6 +42,24 @@ implementation 'ru.noties:jlatexmath-android-font-greek:v0.2.0'
 ```
 
 ## Usage
+
+To center the latex , center your image in parent composable , also provide latex alignment as
+center
+
+#### Preview Only
+
+```kotlin
+Column {
+    runCatching { latexImageBitmap(latex) }.getOrNull()?.let {
+        Image(
+            bitmap = it,
+            contentDescription = null
+        )
+    }
+}
+```
+
+#### Using Text Field
 
 ```kotlin
 var latex by remember { mutableStateOf(latexString) }
