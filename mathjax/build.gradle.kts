@@ -50,19 +50,13 @@ dependencies {
     implementation("androidx.core:core-ktx:1.6.0")
 }
 
-group = BuildConfig.Info.group
-version = BuildConfig.Info.version
-
 val githubProperties = Properties()
-kotlin.runCatching {
-    githubProperties.load(FileInputStream(rootProject.file("github.properties")))
-}
-
+githubProperties.load(FileInputStream(rootProject.file("github.properties")))
 
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("maven") {
+            create<MavenPublication>("release") {
                 groupId = BuildConfig.Info.group
                 version = BuildConfig.Info.version
                 artifactId = BuildConfig.Info.artifactId
