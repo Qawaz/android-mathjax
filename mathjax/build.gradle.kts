@@ -1,5 +1,5 @@
-import java.util.Properties
 import java.io.FileInputStream
+import java.util.*
 
 plugins {
     id("com.android.library")
@@ -11,6 +11,7 @@ android {
     buildFeatures {
         compose = true
     }
+
     compileSdk = BuildConfig.Android.compileSdkVersion
     buildToolsVersion = "30.0.3"
 
@@ -18,6 +19,7 @@ android {
 //        kotlinCompilerVersion = BuildConfig.Info.ComposeVersion
         kotlinCompilerExtensionVersion = BuildConfig.Info.ComposeVersion
     }
+
     defaultConfig {
         minSdk = BuildConfig.Android.minSdkVersion
         targetSdk = BuildConfig.Android.targetSdkVersion
@@ -32,10 +34,12 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -57,6 +61,14 @@ kotlin.runCatching {
 
 afterEvaluate {
     publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = BuildConfig.Info.group
+                version = BuildConfig.Info.version
+                artifactId = BuildConfig.Info.artifactId
+                from(components["release"])
+            }
+        }
         repositories {
             maven {
                 name = "GithubPackages"

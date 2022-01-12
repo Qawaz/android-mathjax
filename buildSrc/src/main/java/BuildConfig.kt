@@ -3,6 +3,7 @@ object BuildConfig {
         const val group = "com.wakaztahir"
         const val version = "2.0.2"
         const val versionCode = 2
+        const val artifactId = "mathjax"
 
         const val ComposeVersion = "1.1.0-rc01"
         const val KotlinVersion = "1.6.0"
