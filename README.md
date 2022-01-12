@@ -1,7 +1,6 @@
 # Compose Math Jax
 
-It uses JLatexMath , Its a fork
-of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
+It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
 
 ## Demo
 
@@ -9,35 +8,50 @@ of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
 
 ## Setup
 
-#### Step 1. Add the JitPack repository to your build file
+#### Get The Dependency
 
-```groovy
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
+Use Github Packages to get the library [here](https://github.com/timeline-notes/compose-mathjax/packages/1191711)
+
+#### Step 1 : Add the Github Packages Repo
+
+This is kotlin gradle script
+
+```kotlin
+maven {
+    name = "GitHubPackages"
+    url = uri("https://maven.pkg.github.com/timeline-notes/timeline-kmp")
+    credentials {
+        username = (githubProperties["gpr.usr"] ?: System.getenv("GPR_USER")).toString()
+        password = (githubProperties["gpr.key"] ?: System.getenv("GPR_API_KEY")).toString()
     }
 }
 ```
 
-#### Step 2. Add the dependency
+#### Step 2 : Create Github Properties File
 
-```groovy
-dependencies {
-    implementation 'com.github.timeline-notes:compose-mathjax:2.0.2'
-}
+Create `github.properties` file in your project at root level and add two properties (make github personal access token)
+
+```properties
+gpr.usr=yourusername
+gpr.key=yourgithubpersonalaccesstoken
 ```
 
+#### Step 3 : Add The Dependency
+
 ```kotlin
-dependencies {
-    implementation("com.github.timeline-notes:compose-mathjax:2.0.2")
-}
+implementation("com.wakaztahir:mathjax:2.0.2")
+```
+
+or groovy
+
+```groovy
+implementation 'com.wakaztahir:mathjax:2.0.2'
 ```
 
 #### Additional
 
-These dependencies will add the assets required for Cyrillic & Greek symbols , I have't really
-tested the projects but it should work just fine considering those assets will available in the
-context
+These dependencies will add the assets required for Cyrillic & Greek symbols , I haven't really tested the projects but
+it should work just fine considering those assets will available in the context
 
 ```groovy
 // for Cyrillic symbols
@@ -49,8 +63,7 @@ implementation 'ru.noties:jlatexmath-android-font-greek:v0.2.0'
 
 ## Usage
 
-To center the latex , center your image in parent composable , also provide latex alignment as
-center
+To center the latex , center your image in parent composable , also provide latex alignment as center
 
 #### Preview Only
 

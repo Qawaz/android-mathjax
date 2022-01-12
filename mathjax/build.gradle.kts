@@ -51,7 +51,9 @@ dependencies {
 }
 
 val githubProperties = Properties()
-githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+runCatching {
+    githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+}
 
 afterEvaluate {
     publishing {
