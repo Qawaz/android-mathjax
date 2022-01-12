@@ -23,7 +23,13 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.timeline-notes:compose-mathjax:2.0.1'
+    implementation 'com.github.timeline-notes:compose-mathjax:2.0.2'
+}
+```
+
+```kotlin
+dependencies {
+    implementation("com.github.timeline-notes:compose-mathjax:2.0.2")
 }
 ```
 
@@ -85,4 +91,3 @@ Column(modifier = Modifier.background(color = MaterialTheme.colors.background)) 
     )
 }
 ```
-
