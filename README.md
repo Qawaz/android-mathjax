@@ -17,6 +17,10 @@ Use Github Packages to get the library [here](https://github.com/timeline-notes/
 This is kotlin gradle script
 
 ```kotlin
+
+val githubProperties = Properties()
+githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+
 maven {
     name = "GitHubPackages"
     url = uri("https://maven.pkg.github.com/timeline-notes/timeline-kmp")
