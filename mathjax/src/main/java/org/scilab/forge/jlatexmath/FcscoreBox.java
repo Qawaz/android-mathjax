@@ -45,11 +45,11 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.BasicStroke;
-import com.wakaztahir.composejlatex.awt.Graphics2D;
-import com.wakaztahir.composejlatex.awt.Stroke;
-import com.wakaztahir.composejlatex.awt.geom.AffineTransform;
-import com.wakaztahir.composejlatex.awt.geom.Line2D;
+import com.wakaztahir.mathjax.awt.BasicStroke;
+import com.wakaztahir.mathjax.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.Stroke;
+import com.wakaztahir.mathjax.awt.geom.AffineTransform;
+import com.wakaztahir.mathjax.awt.geom.Line2D;
 
 /**
  * A box representing glue.

@@ -52,8 +52,8 @@ import android.graphics.Typeface;
 
 import androidx.annotation.NonNull;
 
-import com.wakaztahir.composejlatex.JLatexMathAndroid;
-import com.wakaztahir.composejlatex.awt.Font;
+import com.wakaztahir.mathjax.JLatexMathAndroid;
+import com.wakaztahir.mathjax.awt.Font;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;

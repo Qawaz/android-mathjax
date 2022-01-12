@@ -45,7 +45,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
+import com.wakaztahir.mathjax.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
 

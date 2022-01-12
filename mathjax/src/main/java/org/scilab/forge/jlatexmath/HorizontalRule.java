@@ -46,9 +46,9 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
-import com.wakaztahir.composejlatex.awt.Graphics2D;
-import com.wakaztahir.composejlatex.awt.geom.Rectangle2D;
+import com.wakaztahir.mathjax.awt.Color;
+import com.wakaztahir.mathjax.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.geom.Rectangle2D;
 
 /**
  * A box representing a horizontal line.

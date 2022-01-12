@@ -48,13 +48,9 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
-import com.wakaztahir.composejlatex.awt.GraphicsEnvironment;
-import com.wakaztahir.composejlatex.awt.Toolkit;
-
-import com.wakaztahir.composejlatex.awt.Color;
-import com.wakaztahir.composejlatex.awt.GraphicsEnvironment;
-import com.wakaztahir.composejlatex.awt.Toolkit;
+import com.wakaztahir.mathjax.awt.Color;
+import com.wakaztahir.mathjax.awt.GraphicsEnvironment;
+import com.wakaztahir.mathjax.awt.Toolkit;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
+import com.wakaztahir.mathjax.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;

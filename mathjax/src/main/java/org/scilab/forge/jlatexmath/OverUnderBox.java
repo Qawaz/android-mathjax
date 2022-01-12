@@ -46,8 +46,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Graphics2D;
-import com.wakaztahir.composejlatex.awt.geom.AffineTransform;
+import com.wakaztahir.mathjax.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.geom.AffineTransform;
 
 /**
  * A box representing another box with a delimiter box and a script box above or under it,

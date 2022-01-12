@@ -48,7 +48,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
+import com.wakaztahir.mathjax.awt.Color;
 
 /**
  * Contains the used TeXFont-object, color settings and the current style in which a

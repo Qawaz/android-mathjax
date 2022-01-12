@@ -46,7 +46,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Font;
+import com.wakaztahir.mathjax.awt.Font;
 
 /**
  * Represents a character together with its font, font ID and metric information.

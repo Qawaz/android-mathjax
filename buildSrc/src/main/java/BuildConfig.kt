@@ -1,7 +1,7 @@
 object BuildConfig {
     object Info {
         const val group = "com.wakaztahir"
-        const val version = "2.0.2"
+        const val version = "2.0.3"
         const val versionCode = 2
         const val artifactId = "mathjax"
 

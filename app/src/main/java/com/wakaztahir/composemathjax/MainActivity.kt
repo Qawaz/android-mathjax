@@ -8,7 +8,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -17,8 +16,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.wakaztahir.composejlatex.LatexAlignment
-import com.wakaztahir.composejlatex.latexImageBitmap
+import com.wakaztahir.mathjax.LatexAlignment
+import com.wakaztahir.mathjax.latexImageBitmap
 import com.wakaztahir.composemathjax.ui.theme.ComposeMathjaxTheme
 
 class MainActivity : ComponentActivity() {

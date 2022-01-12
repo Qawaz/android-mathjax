@@ -1,7 +1,7 @@
 package org.scilab.forge.jlatexmath.internal.util;
 
-import com.wakaztahir.composejlatex.awt.Color;
-import com.wakaztahir.composejlatex.awt.image.BufferedImage;
+import com.wakaztahir.mathjax.awt.Color;
+import com.wakaztahir.mathjax.awt.image.BufferedImage;
 
 public final class Images {
 

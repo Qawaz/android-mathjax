@@ -46,8 +46,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.JLatexMathAndroid;
-import com.wakaztahir.composejlatex.awt.Font;
+import com.wakaztahir.mathjax.JLatexMathAndroid;
+import com.wakaztahir.mathjax.awt.Font;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;

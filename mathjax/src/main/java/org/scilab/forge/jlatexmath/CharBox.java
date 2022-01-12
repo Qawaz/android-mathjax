@@ -46,9 +46,9 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Font;
-import com.wakaztahir.composejlatex.awt.Graphics2D;
-import com.wakaztahir.composejlatex.awt.geom.AffineTransform;
+import com.wakaztahir.mathjax.awt.Font;
+import com.wakaztahir.mathjax.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.geom.AffineTransform;
 
 /**
  * A box representing a single character.

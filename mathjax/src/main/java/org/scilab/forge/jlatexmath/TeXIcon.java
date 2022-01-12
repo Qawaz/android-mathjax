@@ -49,14 +49,14 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
-import com.wakaztahir.composejlatex.awt.Component;
-import com.wakaztahir.composejlatex.awt.Graphics;
-import com.wakaztahir.composejlatex.awt.Graphics2D;
-import com.wakaztahir.composejlatex.awt.Insets;
-import com.wakaztahir.composejlatex.awt.RenderingHints;
-import com.wakaztahir.composejlatex.awt.geom.AffineTransform;
-import com.wakaztahir.composejlatex.swing.Icon;
+import com.wakaztahir.mathjax.awt.Color;
+import com.wakaztahir.mathjax.awt.Component;
+import com.wakaztahir.mathjax.awt.Graphics;
+import com.wakaztahir.mathjax.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.Insets;
+import com.wakaztahir.mathjax.awt.RenderingHints;
+import com.wakaztahir.mathjax.awt.geom.AffineTransform;
+import com.wakaztahir.mathjax.swing.Icon;
 
 /**
  * An {@link javax.swing.Icon} implementation that will paint the TeXFormula

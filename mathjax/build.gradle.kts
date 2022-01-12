@@ -47,7 +47,7 @@ android {
 
 dependencies {
     implementation("androidx.compose.ui:ui:${BuildConfig.Info.ComposeVersion}")
-    implementation("androidx.core:core-ktx:1.6.0")
+    implementation("androidx.core:core-ktx:1.7.0")
 }
 
 val githubProperties = Properties()

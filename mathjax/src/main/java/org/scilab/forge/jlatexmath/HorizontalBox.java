@@ -46,8 +46,8 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
-import com.wakaztahir.composejlatex.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.Color;
+import com.wakaztahir.mathjax.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;

@@ -45,7 +45,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Color;
+import com.wakaztahir.mathjax.awt.Color;
 
 /**
  * An atom representing a boxed base atom.

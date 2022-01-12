@@ -45,10 +45,10 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Font;
-import com.wakaztahir.composejlatex.awt.Graphics2D;
-import com.wakaztahir.composejlatex.awt.font.TextLayout;
-import com.wakaztahir.composejlatex.awt.geom.Rectangle2D;
+import com.wakaztahir.mathjax.awt.Font;
+import com.wakaztahir.mathjax.awt.Graphics2D;
+import com.wakaztahir.mathjax.awt.font.TextLayout;
+import com.wakaztahir.mathjax.awt.geom.Rectangle2D;
 
 /**
  * A box representing a scaled box.

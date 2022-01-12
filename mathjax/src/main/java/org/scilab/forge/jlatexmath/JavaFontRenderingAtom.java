@@ -45,7 +45,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.composejlatex.awt.Font;
+import com.wakaztahir.mathjax.awt.Font;
 
 /**
  * The string rendering is made in using Java Graphics2D.drawString.
