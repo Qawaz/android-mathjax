@@ -1,22 +1,19 @@
 package com.wakaztahir.mathjax;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
-
+import androidx.annotation.*;
 import com.wakaztahir.mathjax.awt.AndroidGraphics2D;
 import com.wakaztahir.mathjax.awt.Color;
 import com.wakaztahir.mathjax.awt.Insets;
-
+import kotlin.jvm.Throws;
+import org.jetbrains.annotations.Nullable;
+import org.scilab.forge.jlatexmath.ParseException;
 import org.scilab.forge.jlatexmath.TeXConstants;
 import org.scilab.forge.jlatexmath.TeXFormula;
 import org.scilab.forge.jlatexmath.TeXIcon;
@@ -224,6 +221,12 @@ public class JLatexMathDrawable extends Drawable {
         @NonNull
         public Builder padding(@Px int padding) {
             this.insets = new Insets(padding, padding, padding, padding);
+            return this;
+        }
+
+        @NonNull
+        public Builder padding(Insets insets) {
+            this.insets = insets;
             return this;
         }
 

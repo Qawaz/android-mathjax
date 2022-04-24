@@ -8,24 +8,15 @@ plugins {
 }
 
 android {
-    buildFeatures {
-        compose = true
-    }
 
-    compileSdk = BuildConfig.Android.compileSdkVersion
+    compileSdk = 31
     buildToolsVersion = "30.0.3"
 
-    composeOptions {
-//        kotlinCompilerVersion = BuildConfig.Info.ComposeVersion
-        kotlinCompilerExtensionVersion = BuildConfig.Info.ComposeVersion
-    }
-
     defaultConfig {
-        minSdk = BuildConfig.Android.minSdkVersion
-        targetSdk = BuildConfig.Android.targetSdkVersion
+        minSdk = 21
+        targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -46,29 +37,34 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.ui:ui:${BuildConfig.Info.ComposeVersion}")
-    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.annotation:annotation:1.3.0")
 }
 
 val githubProperties = Properties()
-runCatching {
+try {
     githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+} catch (e: Exception) {
+    e.printStackTrace()
 }
+
+val libGroup = "com.wakaztahir"
+val libVersion = "3.0.0"
+val libArtifactId = "mathjax"
 
 afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                groupId = BuildConfig.Info.group
-                version = BuildConfig.Info.version
-                artifactId = BuildConfig.Info.artifactId
+                groupId = libGroup
+                version = libVersion
+                artifactId = libArtifactId
                 from(components["release"])
             }
         }
         repositories {
             maven {
                 name = "GithubPackages"
-                url = uri("https://maven.pkg.github.com/timeline-notes/compose-mathjax")
+                url = uri("https://maven.pkg.github.com/codeckle/android-mathjax")
 
                 credentials {
                     username = (githubProperties["gpr.usr"] ?: System.getenv("GPR_USER")).toString()
