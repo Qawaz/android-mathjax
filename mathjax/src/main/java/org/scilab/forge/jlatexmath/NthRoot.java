@@ -77,7 +77,7 @@ public class NthRoot extends Atom {
             clr = tf.getXHeight(style, tf.getChar(sqrtSymbol, style).getFontCode());
         else
             clr = drt;
-        clr = drt + Math.abs(clr) / 4 ;
+        clr = drt + Math.abs(clr) / 4;
 
         // cramped style for the formula under the root sign
         Box bs = base.createBox(env.crampStyle());

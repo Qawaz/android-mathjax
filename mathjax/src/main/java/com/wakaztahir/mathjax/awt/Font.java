@@ -2,7 +2,6 @@ package com.wakaztahir.mathjax.awt;
 
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
-
 import androidx.annotation.NonNull;
 
 import java.io.InputStream;

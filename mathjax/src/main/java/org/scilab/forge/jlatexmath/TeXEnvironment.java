@@ -154,7 +154,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return a copy of the environment, but in denominator style.
      */
     public TeXEnvironment denomStyle() {
@@ -164,7 +163,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return the background color setting
      */
     public Color getBackground() {
@@ -172,7 +170,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return the foreground color setting
      */
     public Color getColor() {
@@ -180,7 +177,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return the point size of the TeXFont
      */
     public float getSize() {
@@ -188,7 +184,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return the current style
      */
     public int getStyle() {
@@ -222,7 +217,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return the TeXFont to be used
      */
     public TeXFont getTeXFont() {
@@ -230,7 +224,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return a copy of the environment, but in numerator style.
      */
     public TeXEnvironment numStyle() {
@@ -241,7 +234,6 @@ public class TeXEnvironment {
 
     /**
      * Resets the color settings.
-     *
      */
     public void reset() {
         color = null;
@@ -249,7 +241,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return a copy of the environment, but with the style changed for roots
      */
     public TeXEnvironment rootStyle() {
@@ -259,7 +250,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @param c the background color to be set
      */
     public void setBackground(Color c) {
@@ -267,7 +257,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @param c the foreground color to be set
      */
     public void setColor(Color c) {
@@ -275,7 +264,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return a copy of the environment, but in subscript style.
      */
     public TeXEnvironment subStyle() {
@@ -285,7 +273,6 @@ public class TeXEnvironment {
     }
 
     /**
-     *
      * @return a copy of the environment, but in superscript style.
      */
     public TeXEnvironment supStyle() {

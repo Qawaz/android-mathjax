@@ -57,7 +57,7 @@ package org.scilab.forge.jlatexmath;
  */
 public class GraphicsAtom extends Atom {
 
-//    private Image image = null;
+    //    private Image image = null;
 //    private BufferedImage bimage;
 //    private Label c;
     private int w, h;

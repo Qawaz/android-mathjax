@@ -57,7 +57,7 @@ public class InvalidDelimiterTypeException extends JMathTeXException {
 
     protected InvalidDelimiterTypeException() {
         super(
-            "The delimiter type was not valid! "
-            + "Use one of the delimiter type constants from the class 'TeXConstants'.");
+                "The delimiter type was not valid! "
+                        + "Use one of the delimiter type constants from the class 'TeXConstants'.");
     }
 }

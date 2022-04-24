@@ -83,7 +83,7 @@ public class XArrowAtom extends Atom {
         vb.setDepth(d);
         vb.setHeight(h - d);
 
-        HorizontalBox hb = new HorizontalBox(vb, vb.getWidth() + 2*sep.getHeight(), TeXConstants.ALIGN_CENTER);
+        HorizontalBox hb = new HorizontalBox(vb, vb.getWidth() + 2 * sep.getHeight(), TeXConstants.ALIGN_CENTER);
         return hb;
     }
 }

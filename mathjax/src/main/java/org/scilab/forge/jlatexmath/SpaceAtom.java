@@ -58,6 +58,7 @@ import java.util.Map;
 public class SpaceAtom extends Atom {
 
     private static Map<String, Integer> units = new HashMap<String, Integer>();
+
     static {
         units.put("em", TeXConstants.UNIT_EM);
         units.put("ex", TeXConstants.UNIT_EX);
@@ -81,92 +82,92 @@ public class SpaceAtom extends Atom {
         public float getPixelConversion(TeXEnvironment env);
     }
 
-    private static UnitConversion[] unitConversions = new UnitConversion[] {
+    private static UnitConversion[] unitConversions = new UnitConversion[]{
 
-    new UnitConversion() {//EM
-        public float getPixelConversion(TeXEnvironment env) {
-            return env.getTeXFont().getEM(env.getStyle());
-        }
-    },
+            new UnitConversion() {//EM
+                public float getPixelConversion(TeXEnvironment env) {
+                    return env.getTeXFont().getEM(env.getStyle());
+                }
+            },
 
-    new UnitConversion() {//EX
-        public float getPixelConversion(TeXEnvironment env) {
-            return env.getTeXFont().getXHeight(env.getStyle(), env.getLastFontId());
-        }
-    },
+            new UnitConversion() {//EX
+                public float getPixelConversion(TeXEnvironment env) {
+                    return env.getTeXFont().getXHeight(env.getStyle(), env.getLastFontId());
+                }
+            },
 
-    new UnitConversion() {//PIXEL
-        public float getPixelConversion(TeXEnvironment env) {
-            return 1 / env.getSize();
-        }
-    },
+            new UnitConversion() {//PIXEL
+                public float getPixelConversion(TeXEnvironment env) {
+                    return 1 / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//BP (or PostScript point)
-        public float getPixelConversion(TeXEnvironment env) {
-            return TeXFormula.PIXELS_PER_POINT / env.getSize();
-        }
-    },
+            new UnitConversion() {//BP (or PostScript point)
+                public float getPixelConversion(TeXEnvironment env) {
+                    return TeXFormula.PIXELS_PER_POINT / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//PICA
-        public float getPixelConversion(TeXEnvironment env) {
-            return (12 * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//PICA
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (12 * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//MU
-        public float getPixelConversion(TeXEnvironment env) {
-            TeXFont tf = env.getTeXFont();
-            return tf.getQuad(env.getStyle(), tf.getMuFontId()) / 18;
-        }
-    },
+            new UnitConversion() {//MU
+                public float getPixelConversion(TeXEnvironment env) {
+                    TeXFont tf = env.getTeXFont();
+                    return tf.getQuad(env.getStyle(), tf.getMuFontId()) / 18;
+                }
+            },
 
-    new UnitConversion() {//CM
-        public float getPixelConversion(TeXEnvironment env) {
-            return (28.346456693f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//CM
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (28.346456693f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//MM
-        public float getPixelConversion(TeXEnvironment env) {
-            return (2.8346456693f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//MM
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (2.8346456693f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//IN
-        public float getPixelConversion(TeXEnvironment env) {
-            return (72 * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//IN
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (72 * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//SP
-        public float getPixelConversion(TeXEnvironment env) {
-            return (65536 * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//SP
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (65536 * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//PT (or Standard Anglo-American point)
-        public float getPixelConversion(TeXEnvironment env) {
-            return (.9962640099f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//PT (or Standard Anglo-American point)
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (.9962640099f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//DD
-        public float getPixelConversion(TeXEnvironment env) {
-            return (1.0660349422f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//DD
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (1.0660349422f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//CC
-        public float getPixelConversion(TeXEnvironment env) {
-            return (12.7924193070f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
-        }
-    },
+            new UnitConversion() {//CC
+                public float getPixelConversion(TeXEnvironment env) {
+                    return (12.7924193070f * TeXFormula.PIXELS_PER_POINT) / env.getSize();
+                }
+            },
 
-    new UnitConversion() {//X8
-        public float getPixelConversion(TeXEnvironment env) {
-            return env.getTeXFont().getDefaultRuleThickness(env.getStyle());
-        }
-    }
+            new UnitConversion() {//X8
+                public float getPixelConversion(TeXEnvironment env) {
+                    return env.getTeXFont().getDefaultRuleThickness(env.getStyle());
+                }
+            }
     };
 
     // whether a hard space should be represented
@@ -212,7 +213,7 @@ public class SpaceAtom extends Atom {
      *
      * @param unit the unit's integer representation (a constant)
      * @throws InvalidUnitException if the given integer value does not represent
-     *                  a valid unit
+     *                              a valid unit
      */
     public static void checkUnit(int unit) throws InvalidUnitException {
         if (unit < 0 || unit >= unitConversions.length)
@@ -242,16 +243,16 @@ public class SpaceAtom extends Atom {
 
     public static float[] getLength(String lgth) {
         if (lgth == null) {
-            return new float[] {TeXConstants.UNIT_PIXEL, 0f};
+            return new float[]{TeXConstants.UNIT_PIXEL, 0f};
         }
 
         int i = 0;
-        for (; i < lgth.length() && !Character.isLetter(lgth.charAt(i)); i++);
+        for (; i < lgth.length() && !Character.isLetter(lgth.charAt(i)); i++) ;
         float f = 0;
         try {
             f = Float.parseFloat(lgth.substring(0, i));
         } catch (NumberFormatException e) {
-            return new float[] {Float.NaN};
+            return new float[]{Float.NaN};
         }
 
         int unit;
@@ -261,7 +262,7 @@ public class SpaceAtom extends Atom {
             unit = TeXConstants.UNIT_PIXEL;
         }
 
-        return new float[] {(float) unit, f};
+        return new float[]{(float) unit, f};
     }
 
     public Box createBox(TeXEnvironment env) {

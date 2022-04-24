@@ -47,15 +47,13 @@
 package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.JLatexMathAndroid;
-
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  * Parses TeX symbol definitions from an XML-file.

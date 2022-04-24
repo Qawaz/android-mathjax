@@ -69,15 +69,11 @@ public class OverUnderBox extends Box {
     /**
      * the parameter boxes must have an equal width!!
      *
-     * @param b
-     *           base box to be drawn on the baseline
-     * @param d
-     *           delimiter box
-     * @param script
-     *           subscript or superscript box
-     * @param over
-     *           true : draws delimiter and script box above the base box, false : under the
-     *           base box
+     * @param b      base box to be drawn on the baseline
+     * @param d      delimiter box
+     * @param script subscript or superscript box
+     * @param over   true : draws delimiter and script box above the base box, false : under the
+     *               base box
      */
     public OverUnderBox(Box b, Box d, Box script, float kern, boolean over) {
         base = b;
@@ -89,8 +85,8 @@ public class OverUnderBox extends Box {
         // calculate metrics of the box
         width = b.getWidth();
         height = b.height
-                 + (over ? d.getWidth() : 0)
-                 + (over && script != null ? script.height + script.depth + kern : 0);
+                + (over ? d.getWidth() : 0)
+                + (over && script != null ? script.height + script.depth + kern : 0);
         depth = b.depth
                 + (over ? 0 : d.getWidth())
                 + (!over && script != null ? script.height + script.depth + kern : 0);

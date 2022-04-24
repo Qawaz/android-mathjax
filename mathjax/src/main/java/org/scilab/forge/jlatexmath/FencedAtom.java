@@ -73,8 +73,8 @@ public class FencedAtom extends Atom {
      * Creates a new FencedAtom from the given base and delimiters
      *
      * @param base the base to be surrounded with delimiters
-     * @param l the left delimiter
-     * @param r the right delimiter
+     * @param l    the left delimiter
+     * @param r    the right delimiter
      */
     public FencedAtom(Atom base, SymbolAtom l, SymbolAtom r) {
         this(base, l, null, r);
@@ -91,7 +91,7 @@ public class FencedAtom extends Atom {
         if (r == null || !r.getName().equals("normaldot")) {
             right = r;
         }
-        middle =  m;
+        middle = m;
     }
 
     public int getLeftType() {
@@ -106,8 +106,7 @@ public class FencedAtom extends Atom {
      * Centers the given box with resprect to the given axis, by setting an appropriate
      * shift value.
      *
-     * @param box
-     *           box to be vertically centered with respect to the axis
+     * @param box box to be vertically centered with respect to the axis
      */
     private static void center(Box box, float axis) {
         float h = box.getHeight(), total = h + box.getDepth();

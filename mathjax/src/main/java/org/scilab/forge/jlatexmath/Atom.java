@@ -112,7 +112,7 @@ public abstract class Atom implements Cloneable {
 
     public Atom clone() {
         try {
-            return (Atom)super.clone();
+            return (Atom) super.clone();
         } catch (Exception e) {
             return null;
         }

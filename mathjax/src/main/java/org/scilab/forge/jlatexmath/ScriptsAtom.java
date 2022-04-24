@@ -87,7 +87,7 @@ public class ScriptsAtom extends Atom {
 
             if (base.type_limits == TeXConstants.SCRIPT_LIMITS || (base.type_limits == TeXConstants.SCRIPT_NORMAL && style == TeXConstants.STYLE_DISPLAY))
                 return new UnderOverAtom(new UnderOverAtom(base, subscript, TeXConstants.UNIT_POINT, 0.3f, true, false),
-                                         superscript, TeXConstants.UNIT_POINT, 3.0f, true, true).createBox(env);
+                        superscript, TeXConstants.UNIT_POINT, 3.0f, true, true).createBox(env);
 
             HorizontalBox hor = new HorizontalBox(b);
 
@@ -108,7 +108,7 @@ public class ScriptsAtom extends Atom {
                 shiftUp = box.getHeight() - tf.getSupDrop(supStyle.getStyle());
                 shiftDown = box.getDepth() + tf.getSubDrop(subStyle.getStyle());
             } else if (base instanceof SymbolAtom
-                       && base.type == TeXConstants.TYPE_BIG_OPERATOR) { // single big operator symbol
+                    && base.type == TeXConstants.TYPE_BIG_OPERATOR) { // single big operator symbol
                 Char c = tf.getChar(((SymbolAtom) base).getName(), style);
                 if (style < TeXConstants.STYLE_TEXT && tf.hasNextLarger(c)) // display
                     // style
@@ -116,7 +116,7 @@ public class ScriptsAtom extends Atom {
                 Box x = new CharBox(c);
 
                 x.setShift(-(x.getHeight() + x.getDepth()) / 2
-                           - env.getTeXFont().getAxisHeight(env.getStyle()));
+                        - env.getTeXFont().getAxisHeight(env.getStyle()));
                 hor = new HorizontalBox(x);
 
                 // include delta in width or not?
@@ -169,7 +169,7 @@ public class ScriptsAtom extends Atom {
                 else
                     p = tf.getSup2(style);
                 shiftUp = Math.max(Math.max(shiftUp, p), x.getDepth()
-                                   + Math.abs(tf.getXHeight(style, lastFontId)) / 4);
+                        + Math.abs(tf.getXHeight(style, lastFontId)) / 4);
 
                 if (subscript == null) { // only superscript
                     sup.setShift(-shiftUp);
@@ -184,7 +184,7 @@ public class ScriptsAtom extends Atom {
                     // position both sub- and superscript
                     float drt = tf.getDefaultRuleThickness(style);
                     float interSpace = shiftUp - x.getDepth() + shiftDown
-                                       - y.getHeight(); // space between sub- en
+                            - y.getHeight(); // space between sub- en
                     // superscript
                     if (interSpace < 4 * drt) { // too small
                         shiftUp += 4 * drt - interSpace;
@@ -192,7 +192,7 @@ public class ScriptsAtom extends Atom {
                         // above
                         // baseline
                         float psi = 4 * Math.abs(tf.getXHeight(style, lastFontId))
-                                    / 5 - (shiftUp - x.getDepth());
+                                / 5 - (shiftUp - x.getDepth());
 
                         if (psi > 0) {
                             shiftUp += psi;

@@ -64,7 +64,7 @@ public class OverlinedAtom extends Atom {
 
         // cramp the style of the formula to be overlined and create vertical box
         Box b = (base == null ? new StrutBox(0, 0, 0, 0) : base.createBox(env
-                 .crampStyle()));
+                .crampStyle()));
         OverBar ob = new OverBar(b, 3 * drt, drt);
 
         // baseline vertical box = baseline box b

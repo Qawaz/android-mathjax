@@ -57,7 +57,7 @@ public class SymbolNotFoundException extends JMathTeXException {
 
     protected SymbolNotFoundException(String name) {
         super("There's no symbol with the name '" + name + "' defined in '"
-              + TeXSymbolParser.RESOURCE_NAME + "'!");
+                + TeXSymbolParser.RESOURCE_NAME + "'!");
     }
 
 }

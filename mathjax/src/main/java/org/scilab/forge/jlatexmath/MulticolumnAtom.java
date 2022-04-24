@@ -97,37 +97,37 @@ public class MulticolumnAtom extends Atom {
         while (pos < len) {
             char c = str.charAt(pos);
             switch (c) {
-            case 'l' :
-                align = TeXConstants.ALIGN_LEFT;
-                first = false;
-                break;
-            case 'r':
-                align = TeXConstants.ALIGN_RIGHT;
-                first = false;
-                break;
-            case 'c':
-                align = TeXConstants.ALIGN_CENTER;
-                first = false;
-                break;
-            case '|':
-                if (first) {
-                    beforeVlines = 1;
-                } else {
-                    afterVlines = 1;
-                }
-                while (++pos < len) {
-                    c = str.charAt(pos);
-                    if (c != '|') {
-                        pos--;
-                        break;
+                case 'l':
+                    align = TeXConstants.ALIGN_LEFT;
+                    first = false;
+                    break;
+                case 'r':
+                    align = TeXConstants.ALIGN_RIGHT;
+                    first = false;
+                    break;
+                case 'c':
+                    align = TeXConstants.ALIGN_CENTER;
+                    first = false;
+                    break;
+                case '|':
+                    if (first) {
+                        beforeVlines = 1;
                     } else {
-                        if (first) {
-                            beforeVlines++;
+                        afterVlines = 1;
+                    }
+                    while (++pos < len) {
+                        c = str.charAt(pos);
+                        if (c != '|') {
+                            pos--;
+                            break;
                         } else {
-                            afterVlines++;
+                            if (first) {
+                                beforeVlines++;
+                            } else {
+                                afterVlines++;
+                            }
                         }
                     }
-                }
             }
             pos++;
         }

@@ -47,6 +47,7 @@
 package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.awt.Graphics2D;
+
 import java.util.ListIterator;
 
 /**
@@ -57,7 +58,8 @@ class VerticalBox extends Box {
     private float leftMostPos = Float.MAX_VALUE;
     private float rightMostPos = -Float.MAX_VALUE;
 
-    public VerticalBox() { }
+    public VerticalBox() {
+    }
 
     public VerticalBox(Box b, float rest, int alignment) {
         this();
@@ -128,7 +130,7 @@ class VerticalBox extends Box {
         // untill a font id is found that's not equal to NO_FONT
         int fontId = TeXFont.NO_FONT;
         for (ListIterator<Box> it = children.listIterator(children.size()); fontId == TeXFont.NO_FONT
-                && it.hasPrevious();)
+                && it.hasPrevious(); )
             fontId = it.previous().getLastFontId();
 
         return fontId;

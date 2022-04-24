@@ -63,7 +63,7 @@ public class VCenteredAtom extends Atom {
         Box b = atom.createBox(env);
 
         float total = b.getHeight() + b.getDepth(), axis = env.getTeXFont()
-                      .getAxisHeight(env.getStyle());
+                .getAxisHeight(env.getStyle());
 
         // center on axis
         b.setShift(-(total / 2) - axis);

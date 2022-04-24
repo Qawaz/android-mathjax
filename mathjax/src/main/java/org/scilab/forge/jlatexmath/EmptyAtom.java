@@ -50,7 +50,8 @@ package org.scilab.forge.jlatexmath;
  */
 public class EmptyAtom extends Atom {
 
-    public EmptyAtom() { }
+    public EmptyAtom() {
+    }
 
     public Box createBox(TeXEnvironment env) {
         return new StrutBox(0, 0, 0, 0);

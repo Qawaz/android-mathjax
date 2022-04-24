@@ -93,7 +93,7 @@ public final class BreakFormula {
 
     private static Box split(VerticalBox vbox, float width, float interline) {
         VerticalBox newBox = new VerticalBox();
-        for (Box box:vbox.children) {
+        for (Box box : vbox.children) {
             newBox.add(split(box, width, interline));
         }
 

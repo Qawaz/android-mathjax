@@ -48,6 +48,7 @@ package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.awt.Color;
 import com.wakaztahir.mathjax.awt.Graphics2D;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -108,7 +109,7 @@ public class HorizontalBox extends Box {
     public void draw(Graphics2D g2, float x, float y) {
         startDraw(g2, x, y);
         float xPos = x;
-        for (Box box: children) {
+        for (Box box : children) {
             /*int i = children.indexOf(box);
               if (breakPositions != null && breakPositions.indexOf(i) != -1) {
               box.markForDEBUG = com.wakaztahir.composejlatex.awt.Color.BLUE;
@@ -144,7 +145,7 @@ public class HorizontalBox extends Box {
         // iterate from the last child box to the first untill a font id is found
         // that's not equal to NO_FONT
         int fontId = TeXFont.NO_FONT;
-        for (ListIterator<Box> it = children.listIterator(children.size()); fontId == TeXFont.NO_FONT && it.hasPrevious();)
+        for (ListIterator<Box> it = children.listIterator(children.size()); fontId == TeXFont.NO_FONT && it.hasPrevious(); )
             fontId = ((Box) it.previous()).getLastFontId();
 
         return fontId;
@@ -184,6 +185,6 @@ public class HorizontalBox extends Box {
             }
         }
 
-        return new HorizontalBox[] {hb1, hb2};
+        return new HorizontalBox[]{hb1, hb2};
     }
 }

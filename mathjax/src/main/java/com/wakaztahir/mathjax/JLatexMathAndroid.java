@@ -3,7 +3,6 @@ package com.wakaztahir.mathjax;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
-
 import androidx.annotation.NonNull;
 
 import java.io.IOException;

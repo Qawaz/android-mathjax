@@ -77,7 +77,7 @@ public class SymbolAtom extends CharSymbol {
         symbols = new TeXSymbolParser().readSymbols();
 
         // set valid symbol types
-        validSymbolTypes =  new BitSet(16);
+        validSymbolTypes = new BitSet(16);
         validSymbolTypes.set(TeXConstants.TYPE_ORDINARY);
         validSymbolTypes.set(TeXConstants.TYPE_BIG_OPERATOR);
         validSymbolTypes.set(TeXConstants.TYPE_BINARY_OPERATOR);
@@ -91,8 +91,8 @@ public class SymbolAtom extends CharSymbol {
     public SymbolAtom(SymbolAtom s, int type) throws InvalidSymbolTypeException {
         if (!validSymbolTypes.get(type))
             throw new InvalidSymbolTypeException(
-                "The symbol type was not valid! "
-                + "Use one of the symbol type constants from the class 'TeXConstants'.");
+                    "The symbol type was not valid! "
+                            + "Use one of the symbol type constants from the class 'TeXConstants'.");
         name = s.name;
         this.type = type;
         if (type == TeXConstants.TYPE_BIG_OPERATOR)
@@ -107,7 +107,7 @@ public class SymbolAtom extends CharSymbol {
      *
      * @param name symbol name
      * @param type symbol type constant
-     * @param del whether the symbol is a delimiter
+     * @param del  whether the symbol is a delimiter
      */
     public SymbolAtom(String name, int type, boolean del) {
         this.name = name;
@@ -163,7 +163,6 @@ public class SymbolAtom extends CharSymbol {
     }
 
     /**
-     *
      * @return true if this symbol can act as a delimiter to embrace formulas
      */
     public boolean isDelimiter() {
@@ -182,7 +181,8 @@ public class SymbolAtom extends CharSymbol {
         if (env.getSmallCap() && unicode != 0 && Character.isLowerCase(unicode)) {
             try {
                 cb = new ScaleBox(new CharBox(tf.getChar(TeXFormula.symbolTextMappings[Character.toUpperCase(unicode)], style)), 0.8, 0.8);
-            } catch (SymbolMappingNotFoundException e) { }
+            } catch (SymbolMappingNotFoundException e) {
+            }
         }
 
         if (type == TeXConstants.TYPE_BIG_OPERATOR) {

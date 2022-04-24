@@ -47,8 +47,8 @@ package org.scilab.forge.jlatexmath;
 
 public interface AlphabetRegistration {
 
-    public static final Character.UnicodeBlock[] JLM_GREEK = new Character.UnicodeBlock[] {Character.UnicodeBlock.GREEK, Character.UnicodeBlock.GREEK_EXTENDED};
-    public static final	Character.UnicodeBlock[] JLM_CYRILLIC = new Character.UnicodeBlock[] {Character.UnicodeBlock.CYRILLIC};
+    public static final Character.UnicodeBlock[] JLM_GREEK = new Character.UnicodeBlock[]{Character.UnicodeBlock.GREEK, Character.UnicodeBlock.GREEK_EXTENDED};
+    public static final Character.UnicodeBlock[] JLM_CYRILLIC = new Character.UnicodeBlock[]{Character.UnicodeBlock.CYRILLIC};
 
     public Character.UnicodeBlock[] getUnicodeBlock();
 

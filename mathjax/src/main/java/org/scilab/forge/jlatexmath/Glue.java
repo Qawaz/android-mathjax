@@ -80,7 +80,7 @@ public class Glue {
     /**
      * Name of this glue object.
      */
-    public String getName () {
+    public String getName() {
         return this.name;
     }
 
@@ -90,7 +90,7 @@ public class Glue {
      *
      * @param lType left atom type
      * @param rType right atom type
-     * @param env the TeXEnvironment
+     * @param env   the TeXEnvironment
      * @return a box containing representing the glue
      */
     public static Box get(int lType, int rType, TeXEnvironment env) {

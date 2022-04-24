@@ -63,14 +63,14 @@ public class AccentedAtom extends Atom {
     public AccentedAtom(Atom base, Atom accent) throws InvalidSymbolTypeException {
         this.base = base;
         if (base instanceof AccentedAtom)
-            underbase = ((AccentedAtom)base).underbase;
+            underbase = ((AccentedAtom) base).underbase;
         else
             underbase = base;
 
         if (!(accent instanceof SymbolAtom))
             throw new InvalidSymbolTypeException("Invalid accent");
 
-        this.accent = (SymbolAtom)accent;
+        this.accent = (SymbolAtom) accent;
         this.acc = true;
     }
 
@@ -82,25 +82,25 @@ public class AccentedAtom extends Atom {
     /**
      * Creates an AccentedAtom from a base atom and an accent symbol defined by its name
      *
-     * @param base base atom
+     * @param base       base atom
      * @param accentName name of the accent symbol to be put over the base atom
      * @throws InvalidSymbolTypeException if the symbol is not defined as an accent ('acc')
-     * @throws SymbolNotFoundException if there's no symbol defined with the given name
+     * @throws SymbolNotFoundException    if there's no symbol defined with the given name
      */
     public AccentedAtom(Atom base, String accentName)
-    throws InvalidSymbolTypeException, SymbolNotFoundException {
+            throws InvalidSymbolTypeException, SymbolNotFoundException {
         accent = SymbolAtom.get(accentName);
         if (accent.type == TeXConstants.TYPE_ACCENT) {
             this.base = base;
             if (base instanceof AccentedAtom)
-                underbase = ((AccentedAtom)base).underbase;
+                underbase = ((AccentedAtom) base).underbase;
             else
                 underbase = base;
         } else
             throw new InvalidSymbolTypeException("The symbol with the name '"
-                                                 + accentName + "' is not defined as an accent ("
-                                                 + TeXSymbolParser.TYPE_ATTR + "='acc') in '"
-                                                 + TeXSymbolParser.RESOURCE_NAME + "'!");
+                    + accentName + "' is not defined as an accent ("
+                    + TeXSymbolParser.TYPE_ATTR + "='acc') in '"
+                    + TeXSymbolParser.RESOURCE_NAME + "'!");
     }
 
     /**
@@ -108,16 +108,16 @@ public class AccentedAtom extends Atom {
      * This is used for parsing MathML.
      *
      * @param base base atom
-     * @param acc TeXFormula representing an accent (SymbolAtom)
+     * @param acc  TeXFormula representing an accent (SymbolAtom)
      * @throws InvalidTeXFormulaException if the given TeXFormula does not represent a
-     * 			single SymbolAtom (type "TeXConstants.TYPE_ACCENT")
+     *                                    single SymbolAtom (type "TeXConstants.TYPE_ACCENT")
      * @throws InvalidSymbolTypeException if the symbol is not defined as an accent ('acc')
      */
     public AccentedAtom(Atom base, TeXFormula acc)
-    throws InvalidTeXFormulaException, InvalidSymbolTypeException {
+            throws InvalidTeXFormulaException, InvalidSymbolTypeException {
         if (acc == null)
             throw new InvalidTeXFormulaException(
-                "The accent TeXFormula can't be null!");
+                    "The accent TeXFormula can't be null!");
         else {
             Atom root = acc.root;
             if (root instanceof SymbolAtom) {
@@ -126,14 +126,14 @@ public class AccentedAtom extends Atom {
                     this.base = base;
                 else
                     throw new InvalidSymbolTypeException(
-                        "The accent TeXFormula represents a single symbol with the name '"
-                        + accent.getName()
-                        + "', but this symbol is not defined as an accent ("
-                        + TeXSymbolParser.TYPE_ATTR + "='acc') in '"
-                        + TeXSymbolParser.RESOURCE_NAME + "'!");
+                            "The accent TeXFormula represents a single symbol with the name '"
+                                    + accent.getName()
+                                    + "', but this symbol is not defined as an accent ("
+                                    + TeXSymbolParser.TYPE_ATTR + "='acc') in '"
+                                    + TeXSymbolParser.RESOURCE_NAME + "'!");
             } else
                 throw new InvalidTeXFormulaException(
-                    "The accent TeXFormula does not represent a single symbol!");
+                        "The accent TeXFormula does not represent a single symbol!");
         }
     }
 

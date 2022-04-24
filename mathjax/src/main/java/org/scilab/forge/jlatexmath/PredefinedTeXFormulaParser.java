@@ -47,14 +47,12 @@
 package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.JLatexMathAndroid;
-
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
 import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  * Parses and creates predefined TeXFormula objects form an XML-file.
@@ -89,10 +87,10 @@ public class PredefinedTeXFormulaParser {
             // iterate all "Font"-elements
             NodeList list = root.getElementsByTagName(this.type);
             for (int i = 0; i < list.getLength(); i++) {
-                Element formula = (Element)list.item(i);
+                Element formula = (Element) list.item(i);
                 // get required string attribute
                 String enabled = getAttrValueAndCheckIfNotNull("enabled", formula);
-                if ("true".equals (enabled)) { // parse this formula
+                if ("true".equals(enabled)) { // parse this formula
                     // get required string attribute
                     String name = getAttrValueAndCheckIfNotNull("name", formula);
 
@@ -107,11 +105,11 @@ public class PredefinedTeXFormulaParser {
     }
 
     private static String getAttrValueAndCheckIfNotNull(String attrName,
-            Element element) throws ResourceParseException {
+                                                        Element element) throws ResourceParseException {
         String attrValue = element.getAttribute(attrName);
         if (attrValue.equals(""))
             throw new XMLResourceParseException(RESOURCE_NAME, element.getTagName(),
-                                                attrName, null);
+                    attrName, null);
         return attrValue;
     }
 }

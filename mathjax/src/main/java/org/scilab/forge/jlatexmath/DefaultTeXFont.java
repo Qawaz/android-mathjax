@@ -48,6 +48,7 @@ package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.JLatexMathAndroid;
 import com.wakaztahir.mathjax.awt.Font;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -120,10 +121,10 @@ public class DefaultTeXFont implements TeXFont {
         int muFontId = generalSettings.get(DefaultTeXFontParser.MUFONTID_ATTR).intValue();
         if (muFontId < 0 || muFontId >= fontInfo.length || fontInfo[muFontId] == null)
             throw new XMLResourceParseException(
-                DefaultTeXFontParser.RESOURCE_NAME,
-                DefaultTeXFontParser.GEN_SET_EL,
-                DefaultTeXFontParser.MUFONTID_ATTR,
-                "contains an unknown font id!");
+                    DefaultTeXFontParser.RESOURCE_NAME,
+                    DefaultTeXFontParser.GEN_SET_EL,
+                    DefaultTeXFontParser.MUFONTID_ATTR,
+                    "contains an unknown font id!");
     }
 
     private final float size; // standard size
@@ -196,13 +197,14 @@ public class DefaultTeXFont implements TeXFont {
     }
 
     public static void addAlphabet(Character.UnicodeBlock alphabet, String name) {
-        String lg = "fonts/" + name + "/language_" + name+ ".xml";
-        String sym = "fonts/" + name + "/symbols_" + name+ ".xml";
-        String map = "fonts/" + name + "/mappings_" + name+ ".xml";
+        String lg = "fonts/" + name + "/language_" + name + ".xml";
+        String sym = "fonts/" + name + "/symbols_" + name + ".xml";
+        String map = "fonts/" + name + "/mappings_" + name + ".xml";
 
         try {
             DefaultTeXFont.addAlphabet(alphabet, JLatexMathAndroid.getResourceAsStream(lg), lg, JLatexMathAndroid.getResourceAsStream(sym), sym, JLatexMathAndroid.getResourceAsStream(map), map);
-        } catch (FontAlreadyLoadedException e) { }
+        } catch (FontAlreadyLoadedException e) {
+        }
     }
 
     public static void addAlphabet(AlphabetRegistration reg) {
@@ -271,7 +273,7 @@ public class DefaultTeXFont implements TeXFont {
         } else if (c >= 'a' && c <= 'z') {
             kind = SMALL;
             offset = c - 'a';
-        } else if (c >= 'A' && c  <= 'Z') {
+        } else if (c >= 'A' && c <= 'Z') {
             kind = CAPITALS;
             offset = c - 'A';
         } else {
@@ -391,7 +393,7 @@ public class DefaultTeXFont implements TeXFont {
 
     public CharFont getLigature(CharFont left, CharFont right) {
         if (left.fontId == right.fontId) {
-            FontInfo info =  fontInfo[left.fontId];
+            FontInfo info = fontInfo[left.fontId];
             return info.getLigature(left.c, right.c);
         } else {
             return null;

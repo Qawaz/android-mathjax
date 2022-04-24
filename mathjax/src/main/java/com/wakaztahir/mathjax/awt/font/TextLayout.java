@@ -2,7 +2,6 @@ package com.wakaztahir.mathjax.awt.font;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
-
 import com.wakaztahir.mathjax.awt.Font;
 import com.wakaztahir.mathjax.awt.Graphics2D;
 import com.wakaztahir.mathjax.awt.geom.Rectangle2D;

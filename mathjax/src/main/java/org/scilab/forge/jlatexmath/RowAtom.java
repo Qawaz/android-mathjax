@@ -48,11 +48,11 @@
 
 package org.scilab.forge.jlatexmath;
 
+import org.scilab.forge.jlatexmath.dynamic.DynamicAtom;
+
 import java.util.BitSet;
 import java.util.LinkedList;
 import java.util.ListIterator;
-
-import org.scilab.forge.jlatexmath.dynamic.DynamicAtom;
 
 /**
  * An atom representing a horizontal row of other atoms, to be seperated by glue.
@@ -77,7 +77,7 @@ public class RowAtom extends Atom implements Row {
 
     static {
         // fill binSet
-        binSet = new BitSet (16);
+        binSet = new BitSet(16);
         binSet.set(TeXConstants.TYPE_BINARY_OPERATOR);
         binSet.set(TeXConstants.TYPE_BIG_OPERATOR);
         binSet.set(TeXConstants.TYPE_RELATION);
@@ -85,7 +85,7 @@ public class RowAtom extends Atom implements Row {
         binSet.set(TeXConstants.TYPE_PUNCTUATION);
 
         // fill ligKernSet
-        ligKernSet = new BitSet (16);
+        ligKernSet = new BitSet(16);
         ligKernSet.set(TeXConstants.TYPE_ORDINARY);
         ligKernSet.set(TeXConstants.TYPE_BIG_OPERATOR);
         ligKernSet.set(TeXConstants.TYPE_BINARY_OPERATOR);
@@ -124,11 +124,8 @@ public class RowAtom extends Atom implements Row {
     }
 
     /**
-     *
-     * @param cur
-     *           current atom being processed
-     * @param prev
-     *           previous atom
+     * @param cur  current atom being processed
+     * @param prev previous atom
      */
     private void changeToOrd(Dummy cur, Dummy prev, Atom next) {
         int type = cur.getLeftType();
@@ -149,7 +146,7 @@ public class RowAtom extends Atom implements Row {
         env.reset();
 
         // convert atoms to boxes and add to the horizontal box
-        for (ListIterator<Atom> it = elements.listIterator(); it.hasNext();) {
+        for (ListIterator<Atom> it = elements.listIterator(); it.hasNext(); ) {
             Atom at = it.next();
             position++;
 

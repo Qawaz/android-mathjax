@@ -53,7 +53,7 @@ public class CyrillicRegistration implements AlphabetRegistration {
     }
 
     public Character.UnicodeBlock[] getUnicodeBlock() {
-        return new Character.UnicodeBlock[] {Character.UnicodeBlock.CYRILLIC};
+        return new Character.UnicodeBlock[]{Character.UnicodeBlock.CYRILLIC};
     }
 
     public Object getPackage() {

@@ -55,8 +55,8 @@ public class XMLResourceParseException extends ResourceParseException {
      */
     public XMLResourceParseException(String resourceName, String elementName, String attributeName, String msg) {
         super(resourceName + ": invalid <" + elementName
-              + ">-element found: attribute '" + attributeName + "' "
-              + (msg == null ? "is required!" : msg));
+                + ">-element found: attribute '" + attributeName + "' "
+                + (msg == null ? "is required!" : msg));
     }
 
     /*
@@ -64,15 +64,16 @@ public class XMLResourceParseException extends ResourceParseException {
      */
     public XMLResourceParseException(String resourceName, String elementName, String attributeName, String msg, Throwable e) {
         super(resourceName + ": invalid <" + elementName
-              + ">-element found: attribute '" + attributeName + "' "
-              + (msg == null ? "is required!" : msg), e);
+                + ">-element found: attribute '" + attributeName + "' "
+                + (msg == null ? "is required!" : msg), e);
     }
+
     /*
      * required element missing
      */
     public XMLResourceParseException(String resourceName, String elementName) {
         super(resourceName + ": the required <" + elementName
-              + ">-element is not found!");
+                + ">-element is not found!");
     }
 
     /*

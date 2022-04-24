@@ -47,6 +47,7 @@
 package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.awt.Color;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -56,7 +57,7 @@ import java.util.StringTokenizer;
  */
 public class ColorAtom extends Atom implements Row {
 
-    public static Map<String,Color> Colors = new HashMap<String,Color>();
+    public static Map<String, Color> Colors = new HashMap<String, Color>();
 
     // background color
     private final Color background;
@@ -76,8 +77,8 @@ public class ColorAtom extends Atom implements Row {
      * Null for a color means: no specific color set for this atom.
      *
      * @param atom the atom for which the given colors have to be set
-     * @param bg the background color
-     * @param c the foreground color
+     * @param bg   the background color
+     * @param c    the foreground color
      */
     public ColorAtom(Atom atom, Color bg, Color c) {
         elements = new RowAtom(atom);
@@ -89,10 +90,10 @@ public class ColorAtom extends Atom implements Row {
      * Creates a ColorAtom that overrides the colors of the given ColorAtom if the given
      * colors are not null. If they're null, the old values are used.
      *
-     * @param bg the background color
-     * @param c the foreground color
+     * @param bg  the background color
+     * @param c   the foreground color
      * @param old the ColorAtom for which the colorsettings should be overriden with the
-     *                  given colors.
+     *            given colors.
      */
     public ColorAtom(Color bg, Color c, ColorAtom old) {
         elements = new RowAtom(old.elements);
@@ -133,7 +134,7 @@ public class ColorAtom extends Atom implements Row {
                     int n = toks.countTokens();
                     if (n == 3) {
                         // RGB model
-                        try  {
+                        try {
                             String R = toks.nextToken().trim();
                             String G = toks.nextToken().trim();
                             String B = toks.nextToken().trim();
@@ -158,7 +159,7 @@ public class ColorAtom extends Atom implements Row {
                         }
                     } else if (n == 4) {
                         // CMYK model
-                        try  {
+                        try {
                             float c = Float.parseFloat(toks.nextToken().trim());
                             float m = Float.parseFloat(toks.nextToken().trim());
                             float y = Float.parseFloat(toks.nextToken().trim());
@@ -185,7 +186,8 @@ public class ColorAtom extends Atom implements Row {
                             float g = (float) Math.min(1, Math.max(Float.parseFloat(s), 0));
 
                             return new Color(g, g, g);
-                        } catch (NumberFormatException e) { }
+                        } catch (NumberFormatException e) {
+                        }
                     }
 
                     return Color.decode("#" + s);

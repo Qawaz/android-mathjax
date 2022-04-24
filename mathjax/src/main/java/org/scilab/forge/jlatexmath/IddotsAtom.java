@@ -50,7 +50,8 @@ package org.scilab.forge.jlatexmath;
  */
 public class IddotsAtom extends Atom {
 
-    public IddotsAtom() { }
+    public IddotsAtom() {
+    }
 
     public Box createBox(TeXEnvironment env) {
         Box ldots = TeXFormula.get("ldots").root.createBox(env);

@@ -90,7 +90,6 @@ public class Dummy {
     }
 
     /**
-     *
      * @return the changed type, or the old left type if it hasn't been changed
      */
     public int getLeftType() {
@@ -98,7 +97,6 @@ public class Dummy {
     }
 
     /**
-     *
      * @return the changed type, or the old right type if it hasn't been changed
      */
     public int getRightType() {

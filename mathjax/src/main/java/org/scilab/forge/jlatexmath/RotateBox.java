@@ -140,55 +140,55 @@ public class RotateBox extends Box {
     private static Point2D.Float calculateShift(Box b, int option) {
         Point2D.Float p = new Point2D.Float(0, -b.depth);
         switch (option) {
-        case BL :
-            p.x = 0;
-            p.y = -b.depth;
-            break;
-        case BR :
-            p.x = b.width;
-            p.y = -b.depth;
-            break;
-        case BC :
-            p.x = b.width / 2;
-            p.y = - b.depth;
-            break;
-        case TL :
-            p.x = 0;
-            p.y = b.height;
-            break;
-        case TR :
-            p.x = b.width;
-            p.y = b.height;
-            break;
-        case TC :
-            p.x = b.width / 2;
-            p.y = b.height;
-            break;
-        case BBL :
-            p.x = 0;
-            p.y = 0;
-            break;
-        case BBR :
-            p.x = b.width;
-            p.y = 0;
-            break;
-        case BBC :
-            p.x = b.width / 2;
-            p.y = 0;
-            break;
-        case CL :
-            p.x = 0;
-            p.y = (b.height - b.depth) / 2;
-            break;
-        case CR :
-            p.x = b.width;
-            p.y = (b.height - b.depth) / 2;
-            break;
-        case CC :
-            p.x = b.width / 2;
-            p.y = (b.height - b.depth) / 2;
-            break;
-        default :
+            case BL:
+                p.x = 0;
+                p.y = -b.depth;
+                break;
+            case BR:
+                p.x = b.width;
+                p.y = -b.depth;
+                break;
+            case BC:
+                p.x = b.width / 2;
+                p.y = -b.depth;
+                break;
+            case TL:
+                p.x = 0;
+                p.y = b.height;
+                break;
+            case TR:
+                p.x = b.width;
+                p.y = b.height;
+                break;
+            case TC:
+                p.x = b.width / 2;
+                p.y = b.height;
+                break;
+            case BBL:
+                p.x = 0;
+                p.y = 0;
+                break;
+            case BBR:
+                p.x = b.width;
+                p.y = 0;
+                break;
+            case BBC:
+                p.x = b.width / 2;
+                p.y = 0;
+                break;
+            case CL:
+                p.x = 0;
+                p.y = (b.height - b.depth) / 2;
+                break;
+            case CR:
+                p.x = b.width;
+                p.y = (b.height - b.depth) / 2;
+                break;
+            case CC:
+                p.x = b.width / 2;
+                p.y = (b.height - b.depth) / 2;
+                break;
+            default:
         }
 
         return p;

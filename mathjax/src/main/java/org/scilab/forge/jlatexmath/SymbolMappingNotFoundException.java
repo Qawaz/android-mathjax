@@ -57,7 +57,7 @@ public class SymbolMappingNotFoundException extends JMathTeXException {
 
     protected SymbolMappingNotFoundException(String symbolName) {
         super("No mapping found for the symbol '" + symbolName + "'! "
-              + "Insert a <" + DefaultTeXFontParser.SYMBOL_MAPPING_EL
-              + ">-element in '" + DefaultTeXFontParser.RESOURCE_NAME + "'.");
+                + "Insert a <" + DefaultTeXFontParser.SYMBOL_MAPPING_EL
+                + ">-element in '" + DefaultTeXFontParser.RESOURCE_NAME + "'.");
     }
 }

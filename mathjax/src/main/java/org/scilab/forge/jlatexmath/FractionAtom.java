@@ -59,7 +59,7 @@ public class FractionAtom extends Atom {
 
     // alignment settings for the numerator and denominator
     private int numAlign = TeXConstants.ALIGN_CENTER,
-                denomAlign = TeXConstants.ALIGN_CENTER;
+            denomAlign = TeXConstants.ALIGN_CENTER;
 
     // the atoms representing the numerator and denominator
     private Atom numerator, denominator;
@@ -86,8 +86,8 @@ public class FractionAtom extends Atom {
     /**
      * Uses the default thickness for the fraction line
      *
-     * @param num the numerator
-     * @param den the denominator
+     * @param num  the numerator
+     * @param den  the denominator
      * @param rule whether the fraction line should be drawn
      */
     public FractionAtom(Atom num, Atom den, boolean rule) {
@@ -98,15 +98,15 @@ public class FractionAtom extends Atom {
      * Depending on noDef, the given thickness and unit will be used (<-> the default
      * thickness).
      *
-     * @param num the numerator
-     * @param den the denominator
+     * @param num   the numerator
+     * @param den   the denominator
      * @param noDef whether the default thickness should not be used for the fraction line
-     * @param unit a unit constant for the line thickness
-     * @param t the thickness of the fraction line (in the given unit)
+     * @param unit  a unit constant for the line thickness
+     * @param t     the thickness of the fraction line (in the given unit)
      * @throws InvalidUnitException if the given integer is not a valid unit constant
      */
     public FractionAtom(Atom num, Atom den, boolean noDef, int unit, float t)
-    throws InvalidUnitException {
+            throws InvalidUnitException {
         // check unit
         SpaceAtom.checkUnit(unit);
 
@@ -122,10 +122,10 @@ public class FractionAtom extends Atom {
     /**
      * Uses the default thickness for the fraction line.
      *
-     * @param num the numerator
-     * @param den the denominator
-     * @param rule whether the fraction line should be drawn
-     * @param numAlign alignment of the numerator
+     * @param num        the numerator
+     * @param den        the denominator
+     * @param rule       whether the fraction line should be drawn
+     * @param numAlign   alignment of the numerator
      * @param denomAlign alignment of the denominator
      */
     public FractionAtom(Atom num, Atom den, boolean rule, int numAlign,
@@ -138,10 +138,10 @@ public class FractionAtom extends Atom {
     /**
      * The thickness of the fraction line will be "defFactor" times the default thickness.
      *
-     * @param num the numerator
-     * @param den the denominator
-     * @param defFactor the thickness of the fraction line relative to the default thickness
-     * @param numAlign alignment of the numerator
+     * @param num        the numerator
+     * @param den        the denominator
+     * @param defFactor  the thickness of the fraction line relative to the default thickness
+     * @param numAlign   alignment of the numerator
      * @param denomAlign alignment of the denominator
      */
     public FractionAtom(Atom num, Atom den, float defFactor, int numAlign,
@@ -155,11 +155,11 @@ public class FractionAtom extends Atom {
      * The thickness of the fraction line is determined by the given value "t" in the
      * given unit.
      *
-     * @param num the numerator
-     * @param den the denominator
-     * @param unit a unit constant for the line thickness
-     * @param t the thickness of the fraction line (in the given unit)
-     * @param numAlign alignment of the numerator
+     * @param num        the numerator
+     * @param den        the denominator
+     * @param unit       a unit constant for the line thickness
+     * @param t          the thickness of the fraction line (in the given unit)
+     * @param numAlign   alignment of the numerator
      * @param denomAlign alignment of the denominator
      */
     public FractionAtom(Atom num, Atom den, int unit, float t, int numAlign,
@@ -173,10 +173,10 @@ public class FractionAtom extends Atom {
      * The thickness of the fraction line is determined by the given value "t" in the
      * given unit.
      *
-     * @param num the numerator
-     * @param den the denominator
+     * @param num  the numerator
+     * @param den  the denominator
      * @param unit a unit constant for the line thickness
-     * @param t the thickness of the fraction line (in the given unit)
+     * @param t    the thickness of the fraction line (in the given unit)
      */
     public FractionAtom(Atom num, Atom den, int unit, float t) {
         this(num, den, true, unit, t);
@@ -205,9 +205,9 @@ public class FractionAtom extends Atom {
 
         // create equal width boxes (in appropriate styles)
         Box num = (numerator == null ? new StrutBox(0, 0, 0, 0) : numerator
-                   .createBox(env.numStyle()));
+                .createBox(env.numStyle()));
         Box denom = (denominator == null ? new StrutBox(0, 0, 0, 0) : denominator
-                     .createBox(env.denomStyle()));
+                .createBox(env.denomStyle()));
 
         if (num.getWidth() < denom.getWidth())
             num = new HorizontalBox(num, denom.getWidth(), numAlign);
@@ -244,7 +244,7 @@ public class FractionAtom extends Atom {
             // adjust shift amounts
             delta = thickness / 2;
             float kern1 = shiftUp - num.getDepth() - (axis + delta), kern2 = axis
-                          - delta - (denom.getHeight() - shiftDown);
+                    - delta - (denom.getHeight() - shiftDown);
             float delta1 = clr - kern1, delta2 = clr - kern2;
             if (delta1 > 0) {
                 shiftUp += delta1;
@@ -268,7 +268,7 @@ public class FractionAtom extends Atom {
 
             // adjust shift amounts
             float kern = shiftUp - num.getDepth()
-                         - (denom.getHeight() - shiftDown);
+                    - (denom.getHeight() - shiftDown);
             delta = (clr - kern) / 2;
             if (delta > 0) {
                 shiftUp += delta;

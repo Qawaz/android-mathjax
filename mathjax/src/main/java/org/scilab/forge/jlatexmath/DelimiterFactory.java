@@ -68,7 +68,7 @@ public class DelimiterFactory {
 
         if (i <= size && !tf.hasNextLarger(c)) {
             CharBox A = new CharBox(tf.getChar('A', "mathnormal", style));
-            Box b = create(symbol.getName(), env, size*(A.getHeight() + A.getDepth()));
+            Box b = create(symbol.getName(), env, size * (A.getHeight() + A.getDepth()));
             return b;
         }
 
@@ -76,12 +76,11 @@ public class DelimiterFactory {
     }
 
     /**
-     *
-     * @param symbol the name of the delimiter symbol
-     * @param env the TeXEnvironment in which to create the delimiter box
+     * @param symbol    the name of the delimiter symbol
+     * @param env       the TeXEnvironment in which to create the delimiter box
      * @param minHeight the minimum required total height of the box (height + depth).
      * @return the box representing the delimiter variant that fits best according to
-     * 			the required minimum size.
+     * the required minimum size.
      */
     public static Box create(String symbol, TeXEnvironment env, float minHeight) {
         TeXFont tf = env.getTeXFont();

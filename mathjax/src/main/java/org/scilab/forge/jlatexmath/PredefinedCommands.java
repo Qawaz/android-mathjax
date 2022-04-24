@@ -47,7 +47,8 @@ package org.scilab.forge.jlatexmath;
 
 final class PredefinedCommands {
 
-    PredefinedCommands() { }
+    PredefinedCommands() {
+    }
 
     static {
         MacroInfo.Commands.put("newcommand", new PredefMacroInfo(0, 2, 2));

@@ -83,7 +83,6 @@ public class MatrixAtom extends Atom {
 
     /**
      * Creates an empty matrix
-     *
      */
     public MatrixAtom(boolean isPartial, ArrayOfAtoms array, String options, boolean spaceAround) {
         this.isPartial = isPartial;
@@ -95,7 +94,6 @@ public class MatrixAtom extends Atom {
 
     /**
      * Creates an empty matrix
-     *
      */
     public MatrixAtom(boolean isPartial, ArrayOfAtoms array, String options) {
         this(isPartial, array, options, false);
@@ -103,7 +101,6 @@ public class MatrixAtom extends Atom {
 
     /**
      * Creates an empty matrix
-     *
      */
     public MatrixAtom(ArrayOfAtoms array, String options) {
         this(false, array, options);
@@ -165,62 +162,62 @@ public class MatrixAtom extends Atom {
         while (pos < len) {
             ch = opt.charAt(pos);
             switch (ch) {
-            case 'l' :
-                lposition.add(TeXConstants.ALIGN_LEFT);
-                break;
-            case 'r' :
-                lposition.add(TeXConstants.ALIGN_RIGHT);
-                break;
-            case 'c' :
-                lposition.add(TeXConstants.ALIGN_CENTER);
-                break;
-            case '|' :
-                int nb = 1;
-                while (++pos < len) {
-                    ch = opt.charAt(pos);
-                    if (ch != '|') {
-                        pos--;
-                        break;
-                    } else {
-                        nb++;
+                case 'l':
+                    lposition.add(TeXConstants.ALIGN_LEFT);
+                    break;
+                case 'r':
+                    lposition.add(TeXConstants.ALIGN_RIGHT);
+                    break;
+                case 'c':
+                    lposition.add(TeXConstants.ALIGN_CENTER);
+                    break;
+                case '|':
+                    int nb = 1;
+                    while (++pos < len) {
+                        ch = opt.charAt(pos);
+                        if (ch != '|') {
+                            pos--;
+                            break;
+                        } else {
+                            nb++;
+                        }
                     }
-                }
-                vlines.put(lposition.size(), new VlineAtom(nb));
-                break;
-            case '@' :
-                pos++;
-                tf = new TeXFormula();
-                tp = new TeXParser(isPartial, opt.substring(pos), tf, false);
-                Atom at = tp.getArgument();
-                matrix.col++;
-                for (int j = 0; j < matrix.row; j++) {
-                    matrix.array.get(j).add(lposition.size(), at);
-                }
+                    vlines.put(lposition.size(), new VlineAtom(nb));
+                    break;
+                case '@':
+                    pos++;
+                    tf = new TeXFormula();
+                    tp = new TeXParser(isPartial, opt.substring(pos), tf, false);
+                    Atom at = tp.getArgument();
+                    matrix.col++;
+                    for (int j = 0; j < matrix.row; j++) {
+                        matrix.array.get(j).add(lposition.size(), at);
+                    }
 
-                lposition.add(TeXConstants.ALIGN_NONE);
-                pos += tp.getPos();
-                pos--;
-                break;
-            case '*' :
-                pos++;
-                tf = new TeXFormula();
-                tp = new TeXParser(isPartial, opt.substring(pos), tf, false);
-                String[] args = tp.getOptsArgs(2, 0);
-                pos += tp.getPos();
-                int nrep =  Integer.parseInt(args[1]);
-                String str = "";
-                for (int j = 0; j < nrep; j++) {
-                    str += args[2];
-                }
-                opt.insert(pos, str);
-                len = opt.length();
-                pos--;
-                break;
-            case ' ':
-            case '\t':
-                break;
-            default :
-                lposition.add(TeXConstants.ALIGN_CENTER);
+                    lposition.add(TeXConstants.ALIGN_NONE);
+                    pos += tp.getPos();
+                    pos--;
+                    break;
+                case '*':
+                    pos++;
+                    tf = new TeXFormula();
+                    tp = new TeXParser(isPartial, opt.substring(pos), tf, false);
+                    String[] args = tp.getOptsArgs(2, 0);
+                    pos += tp.getPos();
+                    int nrep = Integer.parseInt(args[1]);
+                    String str = "";
+                    for (int j = 0; j < nrep; j++) {
+                        str += args[2];
+                    }
+                    opt.insert(pos, str);
+                    len = opt.length();
+                    pos--;
+                    break;
+                case ' ':
+                case '\t':
+                    break;
+                default:
+                    lposition.add(TeXConstants.ALIGN_CENTER);
             }
             pos++;
         }
@@ -236,7 +233,7 @@ public class MatrixAtom extends Atom {
                 position[i] = tab[i];
             }
         } else {
-            position = new int[] {TeXConstants.ALIGN_CENTER};
+            position = new int[]{TeXConstants.ALIGN_CENTER};
         }
     }
 
@@ -252,106 +249,106 @@ public class MatrixAtom extends Atom {
         }
 
         switch (type) {
-        case ARRAY :
-            //Array : hsep_col/2 elem hsep_col elem hsep_col ... hsep_col elem hsep_col/2
-            i = 1;
-            if (position[0] == TeXConstants.ALIGN_NONE) {
-                arr[1] = new StrutBox(0.0f, 0.0f, 0.0f, 0.0f);
-                i = 2;
-            }
-            if (spaceAround) {
-                arr[0] = semihsep.createBox(env);
-            } else {
-                arr[0] = new StrutBox(0.0f, 0.0f, 0.0f, 0.0f);
-            }
-            arr[col] = arr[0];
-            Hsep = hsep.createBox(env);
-            for (; i < col; i++) {
-                if (position[i] == TeXConstants.ALIGN_NONE) {
-                    arr[i] = new StrutBox(0.0f, 0.0f, 0.0f, 0.0f);
-                    arr[i + 1] = arr[i];
-                    i++;
+            case ARRAY:
+                //Array : hsep_col/2 elem hsep_col elem hsep_col ... hsep_col elem hsep_col/2
+                i = 1;
+                if (position[0] == TeXConstants.ALIGN_NONE) {
+                    arr[1] = new StrutBox(0.0f, 0.0f, 0.0f, 0.0f);
+                    i = 2;
+                }
+                if (spaceAround) {
+                    arr[0] = semihsep.createBox(env);
                 } else {
+                    arr[0] = new StrutBox(0.0f, 0.0f, 0.0f, 0.0f);
+                }
+                arr[col] = arr[0];
+                Hsep = hsep.createBox(env);
+                for (; i < col; i++) {
+                    if (position[i] == TeXConstants.ALIGN_NONE) {
+                        arr[i] = new StrutBox(0.0f, 0.0f, 0.0f, 0.0f);
+                        arr[i + 1] = arr[i];
+                        i++;
+                    } else {
+                        arr[i] = Hsep;
+                    }
+                }
+
+                return arr;
+            case MATRIX:
+            case SMALLMATRIX:
+                //Simple matrix : (hsep_col/2 or 0) elem hsep_col elem hsep_col ... hsep_col elem (hsep_col/2 or 0)
+                arr[0] = nullBox;
+                arr[col] = arr[0];
+                Hsep = hsep.createBox(env);
+                for (i = 1; i < col; i++) {
                     arr[i] = Hsep;
                 }
-            }
 
-            return arr;
-        case MATRIX :
-        case SMALLMATRIX :
-            //Simple matrix : (hsep_col/2 or 0) elem hsep_col elem hsep_col ... hsep_col elem (hsep_col/2 or 0)
-            arr[0] = nullBox;
-            arr[col] = arr[0];
-            Hsep = hsep.createBox(env);
-            for (i = 1; i < col; i++) {
-                arr[i] = Hsep;
-            }
-
-            return arr;
-        case ALIGNED :
-        case ALIGN :
-            //Align env. : hsep=(textwidth-matWidth)/(2n+1) and hsep eq_lft \medskip el_rgt hsep ... hsep elem hsep
-            Align = align.createBox(env);
-            if (w != Float.POSITIVE_INFINITY) {
-                h = Math.max((w - width - (col / 2) * Align.getWidth()) / (float) Math.floor((col + 3)/ 2), 0);
-                AlignSep = new StrutBox(h, 0.0f, 0.0f, 0.0f);
-            } else {
-                AlignSep = hsep.createBox(env);
-            }
-
-            arr[col] = AlignSep;
-            for (i = 0; i < col; i++) {
-                if (i % 2 == 0) {
-                    arr[i] = AlignSep;
+                return arr;
+            case ALIGNED:
+            case ALIGN:
+                //Align env. : hsep=(textwidth-matWidth)/(2n+1) and hsep eq_lft \medskip el_rgt hsep ... hsep elem hsep
+                Align = align.createBox(env);
+                if (w != Float.POSITIVE_INFINITY) {
+                    h = Math.max((w - width - (col / 2) * Align.getWidth()) / (float) Math.floor((col + 3) / 2), 0);
+                    AlignSep = new StrutBox(h, 0.0f, 0.0f, 0.0f);
                 } else {
-                    arr[i] = Align;
+                    AlignSep = hsep.createBox(env);
                 }
-            }
 
-            break;
-        case ALIGNEDAT :
-        case ALIGNAT :
-            //Alignat env. : hsep=(textwidth-matWidth)/2 and hsep elem ... elem hsep
-            if (w != Float.POSITIVE_INFINITY) {
-                h = Math.max((w - width) / 2, 0);
-            } else {
-                h = 0;
-            }
+                arr[col] = AlignSep;
+                for (i = 0; i < col; i++) {
+                    if (i % 2 == 0) {
+                        arr[i] = AlignSep;
+                    } else {
+                        arr[i] = Align;
+                    }
+                }
 
-            Align = align.createBox(env);
-            Box empty = nullBox;
-            arr[0] = new StrutBox(h, 0.0f, 0.0f, 0.0f);
-            arr[col] = arr[0];
-            for (i = 1; i < col; i++) {
-                if (i % 2 == 0) {
-                    arr[i] = empty;
+                break;
+            case ALIGNEDAT:
+            case ALIGNAT:
+                //Alignat env. : hsep=(textwidth-matWidth)/2 and hsep elem ... elem hsep
+                if (w != Float.POSITIVE_INFINITY) {
+                    h = Math.max((w - width) / 2, 0);
                 } else {
-                    arr[i] = Align;
+                    h = 0;
                 }
-            }
 
-            break;
-        case FLALIGN :
-            //flalign env. : hsep=(textwidth-matWidth)/(2n+1) and hsep eq_lft \medskip el_rgt hsep ... hsep elem hsep
-            Align = align.createBox(env);
-            if (w != Float.POSITIVE_INFINITY) {
-                h = Math.max((w - width - (col / 2) * Align.getWidth()) / (float) Math.floor((col - 1)/ 2), 0);
-                AlignSep = new StrutBox(h, 0.0f, 0.0f, 0.0f);
-            } else {
-                AlignSep = hsep.createBox(env);
-            }
+                Align = align.createBox(env);
+                Box empty = nullBox;
+                arr[0] = new StrutBox(h, 0.0f, 0.0f, 0.0f);
+                arr[col] = arr[0];
+                for (i = 1; i < col; i++) {
+                    if (i % 2 == 0) {
+                        arr[i] = empty;
+                    } else {
+                        arr[i] = Align;
+                    }
+                }
 
-            arr[0] = nullBox;
-            arr[col] = arr[0];
-            for (i = 1; i < col; i++) {
-                if (i % 2 == 0) {
-                    arr[i] = AlignSep;
+                break;
+            case FLALIGN:
+                //flalign env. : hsep=(textwidth-matWidth)/(2n+1) and hsep eq_lft \medskip el_rgt hsep ... hsep elem hsep
+                Align = align.createBox(env);
+                if (w != Float.POSITIVE_INFINITY) {
+                    h = Math.max((w - width - (col / 2) * Align.getWidth()) / (float) Math.floor((col - 1) / 2), 0);
+                    AlignSep = new StrutBox(h, 0.0f, 0.0f, 0.0f);
                 } else {
-                    arr[i] = Align;
+                    AlignSep = hsep.createBox(env);
                 }
-            }
 
-            break;
+                arr[0] = nullBox;
+                arr[col] = arr[0];
+                for (i = 1; i < col; i++) {
+                    if (i % 2 == 0) {
+                        arr[i] = AlignSep;
+                    } else {
+                        arr[i] = Align;
+                    }
+                }
+
+                break;
         }
 
         if (w == Float.POSITIVE_INFINITY) {
@@ -446,65 +443,65 @@ public class MatrixAtom extends Atom {
             HorizontalBox hb = new HorizontalBox();
             for (int j = 0; j < col; j++) {
                 switch (boxarr[i][j].type) {
-                case -1 :
-                case TeXConstants.TYPE_MULTICOLUMN :
-                    if (j == 0) {
-                        if (vlines.get(0) != null) {
-                            VlineAtom vat = vlines.get(0);
+                    case -1:
+                    case TeXConstants.TYPE_MULTICOLUMN:
+                        if (j == 0) {
+                            if (vlines.get(0) != null) {
+                                VlineAtom vat = vlines.get(0);
+                                vat.setHeight(lineHeight[i] + lineDepth[i] + Vsep.getHeight());
+                                vat.setShift(lineDepth[i] + Vsep.getHeight() / 2);
+                                Box vatBox = vat.createBox(env);
+                                hb.add(new HorizontalBox(vatBox, Hsep[0].getWidth() + vatBox.getWidth(), TeXConstants.ALIGN_LEFT));
+                            } else {
+                                hb.add(Hsep[0]);
+                            }
+                        }
+
+                        boolean lastVline = true;
+
+                        if (boxarr[i][j].type == -1) {
+                            hb.add(new HorizontalBox(boxarr[i][j], rowWidth[j], position[j]));
+                        } else {
+                            Box b = generateMulticolumn(env, Hsep, rowWidth, i, j);
+                            MulticolumnAtom matom = (MulticolumnAtom) matrix.array.get(i).get(j);
+                            j += matom.getSkipped() - 1;
+                            hb.add(b);
+                            lastVline = matom.hasRightVline();
+                        }
+
+                        if (lastVline && vlines.get(j + 1) != null) {
+                            VlineAtom vat = vlines.get(j + 1);
                             vat.setHeight(lineHeight[i] + lineDepth[i] + Vsep.getHeight());
                             vat.setShift(lineDepth[i] + Vsep.getHeight() / 2);
                             Box vatBox = vat.createBox(env);
-                            hb.add(new HorizontalBox(vatBox, Hsep[0].getWidth() + vatBox.getWidth(), TeXConstants.ALIGN_LEFT));
+                            if (j < col - 1) {
+                                hb.add(new HorizontalBox(vatBox, Hsep[j + 1].getWidth() + vatBox.getWidth(), TeXConstants.ALIGN_CENTER));
+                            } else {
+                                hb.add(new HorizontalBox(vatBox, Hsep[j + 1].getWidth() + vatBox.getWidth(), TeXConstants.ALIGN_RIGHT));
+                            }
                         } else {
-                            hb.add(Hsep[0]);
+                            hb.add(Hsep[j + 1]);
                         }
-                    }
-
-                    boolean lastVline = true;
-
-                    if (boxarr[i][j].type == -1) {
-                        hb.add(new HorizontalBox(boxarr[i][j], rowWidth[j], position[j]));
-                    } else {
-                        Box b = generateMulticolumn(env, Hsep, rowWidth, i, j);
-                        MulticolumnAtom matom = (MulticolumnAtom) matrix.array.get(i).get(j);
-                        j += matom.getSkipped() - 1;
-                        hb.add(b);
-                        lastVline = matom.hasRightVline();
-                    }
-
-                    if (lastVline && vlines.get(j + 1) != null) {
-                        VlineAtom vat = vlines.get(j + 1);
-                        vat.setHeight(lineHeight[i] + lineDepth[i] + Vsep.getHeight());
-                        vat.setShift(lineDepth[i] + Vsep.getHeight() / 2);
-                        Box vatBox = vat.createBox(env);
-                        if (j < col - 1) {
-                            hb.add(new HorizontalBox(vatBox, Hsep[j + 1].getWidth() + vatBox.getWidth(), TeXConstants.ALIGN_CENTER));
+                        break;
+                    case TeXConstants.TYPE_INTERTEXT:
+                        float f = env.getTextwidth();
+                        f = f == Float.POSITIVE_INFINITY ? rowWidth[j] : f;
+                        hb = new HorizontalBox(boxarr[i][j], f, TeXConstants.ALIGN_LEFT);
+                        j = col - 1;
+                        break;
+                    case TeXConstants.TYPE_HLINE:
+                        HlineAtom at = (HlineAtom) matrix.array.get(i).get(j);
+                        at.setWidth(matW);
+                        if (i >= 1 && matrix.array.get(i - 1).get(j) instanceof HlineAtom) {
+                            hb.add(new StrutBox(0, 2 * drt, 0, 0));
+                            at.setShift(-Vsep.getHeight() / 2 + drt);
                         } else {
-                            hb.add(new HorizontalBox(vatBox, Hsep[j + 1].getWidth() + vatBox.getWidth(), TeXConstants.ALIGN_RIGHT));
+                            at.setShift(-Vsep.getHeight() / 2);
                         }
-                    } else {
-                        hb.add(Hsep[j + 1]);
-                    }
-                    break;
-                case TeXConstants.TYPE_INTERTEXT :
-                    float f = env.getTextwidth();
-                    f = f == Float.POSITIVE_INFINITY ? rowWidth[j] : f;
-                    hb = new HorizontalBox(boxarr[i][j], f, TeXConstants.ALIGN_LEFT);
-                    j = col - 1;
-                    break;
-                case TeXConstants.TYPE_HLINE :
-                    HlineAtom at = (HlineAtom) matrix.array.get(i).get(j);
-                    at.setWidth(matW);
-                    if (i >= 1 && matrix.array.get(i - 1).get(j) instanceof HlineAtom) {
-                        hb.add(new StrutBox(0, 2 * drt, 0, 0));
-                        at.setShift(-Vsep.getHeight() / 2 + drt);
-                    } else {
-                        at.setShift(-Vsep.getHeight() / 2);
-                    }
 
-                    hb.add(at.createBox(env));
-                    j = col;
-                    break;
+                        hb.add(at.createBox(env));
+                        j = col;
+                        break;
                 }
             }
 

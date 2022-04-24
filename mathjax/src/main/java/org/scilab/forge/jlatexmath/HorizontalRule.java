@@ -56,7 +56,8 @@ import com.wakaztahir.mathjax.awt.geom.Rectangle2D;
 public class HorizontalRule extends Box {
 
     private Color color = null;
-    private float speShift = 0;;
+    private float speShift = 0;
+    ;
 
     public HorizontalRule(float thickness, float width, float s) {
         height = thickness;

@@ -63,7 +63,7 @@ public class CharAtom extends CharSymbol {
      * Creates a CharAtom that will represent the given character in the given text style.
      * Null for the text style means the default text style.
      *
-     * @param c the alphanumeric character
+     * @param c         the alphanumeric character
      * @param textStyle the text style in which the character should be drawn
      */
     public CharAtom(char c, String textStyle, boolean mathMode) {

@@ -48,7 +48,7 @@ try {
 }
 
 val libGroup = "com.wakaztahir"
-val libVersion = "3.0.0"
+val libVersion = "3.0.1"
 val libArtifactId = "mathjax"
 
 afterEvaluate {

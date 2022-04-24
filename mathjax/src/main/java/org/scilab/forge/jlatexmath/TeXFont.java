@@ -84,20 +84,20 @@ public interface TeXFont {
      * Get a Char-object specifying the given character in the given text style with
      * metric information depending on the given "style".
      *
-     * @param c alphanumeric character
+     * @param c         alphanumeric character
      * @param textStyle the text style in which the character should be drawn
-     * @param style the style in which the atom should be drawn
+     * @param style     the style in which the atom should be drawn
      * @return the Char-object specifying the given character in the given text style
      * @throws TextStyleMappingNotFoundException if there's no text style defined with
-     * 		the given name
+     *                                           the given name
      */
     public Char getChar(char c, String textStyle, int style)
-    throws TextStyleMappingNotFoundException;
+            throws TextStyleMappingNotFoundException;
 
     /**
      * Get a Char-object for this specific character containing the metric information
      *
-     * @param cf CharFont-object determining a specific character of a specific font
+     * @param cf    CharFont-object determining a specific character of a specific font
      * @param style the style in which the atom should be drawn
      * @return the Char-object for this character containing metric information
      */
@@ -107,20 +107,20 @@ public interface TeXFont {
      * Get a Char-object for the given symbol with metric information depending on
      * "style".
      *
-     * @param name the symbol name
+     * @param name  the symbol name
      * @param style the style in which the atom should be drawn
      * @return a Char-object for this symbol with metric information
      * @throws SymbolMappingNotFoundException if there's no symbol defined with the given
-     * 			name
+     *                                        name
      */
     public Char getChar(String name, int style)
-    throws SymbolMappingNotFoundException;
+            throws SymbolMappingNotFoundException;
 
     /**
      * Get a Char-object specifying the given character in the default text style with
      * metric information depending on the given "style".
      *
-     * @param c alphanumeric character
+     * @param c     alphanumeric character
      * @param style the style in which the atom should be drawn
      * @return the Char-object specifying the given character in the default text style
      */
@@ -137,7 +137,7 @@ public interface TeXFont {
      * build an arbitrary large variant. This will only be called if isExtensionChar(Char)
      * returns true.
      *
-     * @param c a Char-object for a specific character
+     * @param c     a Char-object for a specific character
      * @param style the style in which the atom should be drawn
      * @return an Extension object containing the 4 possible parts
      */
@@ -146,7 +146,7 @@ public interface TeXFont {
     /**
      * Get the kern value to be inserted between the given characters in the given style.
      *
-     * @param left left character
+     * @param left  left character
      * @param right right character
      * @param style the style in which the atom should be drawn
      * @return the kern value between both characters (default 0)
@@ -156,7 +156,7 @@ public interface TeXFont {
     /**
      * Get the ligature that replaces both characters (if any).
      *
-     * @param left left character
+     * @param left  left character
      * @param right right character
      * @return a ligature replacing both characters (or null: no ligature)
      */
@@ -168,7 +168,7 @@ public interface TeXFont {
      * Get the next larger version of the given character. This is only called if
      * hasNextLarger(Char) returns true.
      *
-     * @param c character
+     * @param c     character
      * @param style the style in which the atom should be drawn
      * @return the next larger version of this character
      */
@@ -183,7 +183,6 @@ public interface TeXFont {
     public float getQuad(int style, int fontCode);
 
     /**
-     *
      * @return the point size of this TeXFont
      */
     public float getSize();
@@ -193,7 +192,7 @@ public interface TeXFont {
      * "skewchar" of it's font. This is used in the algorithm for placing an accent above
      * a single character.
      *
-     * @param cf the character and it's font above which an accent has to be placed
+     * @param cf    the character and it's font above which an accent has to be placed
      * @param style the render style
      * @return the kern amount of the character defined by cf followed by the
      * "skewchar" of it's font.
@@ -221,7 +220,6 @@ public interface TeXFont {
     public float getEM(int style);
 
     /**
-     *
      * @param c a character
      * @return true if the given character has a larger version, false otherwise
      */
@@ -250,10 +248,9 @@ public interface TeXFont {
     public boolean getSs();
 
     /**
-     *
      * @param c a character
      * @return true if the given character contains extension information to buid
-     * 			an arbitrary large version of this character.
+     * an arbitrary large version of this character.
      */
     public boolean isExtensionChar(Char c);
 

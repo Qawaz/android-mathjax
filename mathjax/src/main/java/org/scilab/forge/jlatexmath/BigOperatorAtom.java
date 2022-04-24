@@ -71,9 +71,9 @@ public class BigOperatorAtom extends Atom {
      * Creates a new BigOperatorAtom from the given atoms.
      * The default rules the positioning of the limits will be applied.
      *
-     * @param base atom representing the big operator
+     * @param base  atom representing the big operator
      * @param under atom representing the under limit
-     * @param over atom representing the over limit
+     * @param over  atom representing the over limit
      */
     public BigOperatorAtom(Atom base, Atom under, Atom over) {
         this.base = base;
@@ -86,9 +86,9 @@ public class BigOperatorAtom extends Atom {
      * Creates a new BigOperatorAtom from the given atoms.
      * Limits will be drawn according to the "limits"-value
      *
-     * @param base atom representing the big operator
-     * @param under atom representing the under limit
-     * @param over atom representing the over limit
+     * @param base   atom representing the big operator
+     * @param under  atom representing the under limit
+     * @param over   atom representing the over limit
      * @param limits whether limits should be drawn over and under the base (<-> as scripts)
      */
     public BigOperatorAtom(Atom base, Atom under, Atom over, boolean limits) {
@@ -107,10 +107,10 @@ public class BigOperatorAtom extends Atom {
         RowAtom bbase = null;
         Atom Base = base;
         if (base instanceof TypedAtom) {
-            Atom at = ((TypedAtom)base).getBase();
-            if (at instanceof RowAtom && ((RowAtom)at).lookAtLastAtom && base.type_limits != TeXConstants.SCRIPT_LIMITS) {
-                base = ((RowAtom)at).getLastAtom();
-                bbase = (RowAtom)at;
+            Atom at = ((TypedAtom) base).getBase();
+            if (at instanceof RowAtom && ((RowAtom) at).lookAtLastAtom && base.type_limits != TeXConstants.SCRIPT_LIMITS) {
+                base = ((RowAtom) at).getLastAtom();
+                bbase = (RowAtom) at;
             } else
                 base = at;
         }
@@ -144,7 +144,7 @@ public class BigOperatorAtom extends Atom {
             } else { // formula
                 delta = 0;
                 y = new HorizontalBox(base == null ? new StrutBox(0, 0, 0, 0)
-                                      : base.createBox(env));
+                        : base.createBox(env));
             }
 
             // limits
@@ -156,7 +156,7 @@ public class BigOperatorAtom extends Atom {
 
             // make boxes equally wide
             float maxWidth = Math.max(Math.max(x == null ? 0 : x.getWidth(), y
-                                               .getWidth()), z == null ? 0 : z.getWidth());
+                    .getWidth()), z == null ? 0 : z.getWidth());
             x = changeWidth(x, maxWidth);
             y = changeWidth(y, maxWidth);
             z = changeWidth(z, maxWidth);
@@ -173,8 +173,8 @@ public class BigOperatorAtom extends Atom {
                 x.setShift(delta / 2);
                 vBox.add(x);
                 kern = Math.max(tf.getBigOpSpacing1(style), tf
-                                .getBigOpSpacing3(style)
-                                - x.getDepth());
+                        .getBigOpSpacing3(style)
+                        - x.getDepth());
                 vBox.add(new StrutBox(0, kern, 0, 0));
                 xh = vBox.getHeight() + vBox.getDepth();
             }
@@ -185,8 +185,8 @@ public class BigOperatorAtom extends Atom {
             // under
             if (under != null) {
                 float k = Math.max(tf.getBigOpSpacing2(style), tf
-                                   .getBigOpSpacing4(style)
-                                   - z.getHeight());
+                        .getBigOpSpacing4(style)
+                        - z.getHeight());
                 vBox.add(new StrutBox(0, k, 0, 0));
                 z.setShift(-delta / 2);
                 vBox.add(z);

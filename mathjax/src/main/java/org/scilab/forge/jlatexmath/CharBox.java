@@ -89,7 +89,7 @@ public class CharBox extends Box {
 
         if (Math.abs(size - TeXFormula.FONT_SCALE_FACTOR) > TeXFormula.PREC) {
             g2.scale(size / TeXFormula.FONT_SCALE_FACTOR,
-                     size / TeXFormula.FONT_SCALE_FACTOR);
+                    size / TeXFormula.FONT_SCALE_FACTOR);
         }
 
         if (g2.getFont() != font) {

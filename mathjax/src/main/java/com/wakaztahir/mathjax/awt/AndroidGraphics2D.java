@@ -3,7 +3,6 @@ package com.wakaztahir.mathjax.awt;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-
 import com.wakaztahir.mathjax.awt.font.FontRenderContext;
 import com.wakaztahir.mathjax.awt.geom.AffineTransform;
 import com.wakaztahir.mathjax.awt.geom.Line2D;

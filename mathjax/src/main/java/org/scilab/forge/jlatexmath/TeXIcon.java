@@ -49,12 +49,7 @@
 
 package org.scilab.forge.jlatexmath;
 
-import com.wakaztahir.mathjax.awt.Color;
-import com.wakaztahir.mathjax.awt.Component;
-import com.wakaztahir.mathjax.awt.Graphics;
-import com.wakaztahir.mathjax.awt.Graphics2D;
-import com.wakaztahir.mathjax.awt.Insets;
-import com.wakaztahir.mathjax.awt.RenderingHints;
+import com.wakaztahir.mathjax.awt.*;
 import com.wakaztahir.mathjax.awt.geom.AffineTransform;
 import com.wakaztahir.mathjax.swing.Icon;
 

@@ -36,7 +36,7 @@ public class GreekRegistration implements AlphabetRegistration {
     }
 
     public Character.UnicodeBlock[] getUnicodeBlock() {
-        return new Character.UnicodeBlock[] {Character.UnicodeBlock.GREEK, Character.UnicodeBlock.GREEK_EXTENDED};
+        return new Character.UnicodeBlock[]{Character.UnicodeBlock.GREEK, Character.UnicodeBlock.GREEK_EXTENDED};
     }
 
     public Object getPackage() {

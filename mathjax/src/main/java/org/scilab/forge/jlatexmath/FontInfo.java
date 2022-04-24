@@ -47,6 +47,7 @@
 package org.scilab.forge.jlatexmath;
 
 import com.wakaztahir.mathjax.awt.Font;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,8 +91,8 @@ public class FontInfo {
     private final String path;
     private final String fontName;
 
-    private final Map<CharCouple,Character> lig = new HashMap<CharCouple,Character> ();
-    private final Map<CharCouple,Float> kern = new HashMap<CharCouple,Float>();
+    private final Map<CharCouple, Character> lig = new HashMap<CharCouple, Character>();
+    private final Map<CharCouple, Float> kern = new HashMap<CharCouple, Float>();
     private float[][] metrics;
     private CharFont[] nextLarger;
     private int[][] extensions;
@@ -140,25 +141,18 @@ public class FontInfo {
     }
 
     /**
-     *
-     * @param left
-     *           left character
-     * @param right
-     *           right character
-     * @param k
-     *           kern value
+     * @param left  left character
+     * @param right right character
+     * @param k     kern value
      */
     public void addKern(char left, char right, float k) {
         kern.put(new CharCouple(left, right), new Float(k));
     }
 
     /**
-     * @param left
-     *           left character
-     * @param right
-     *           right character
-     * @param ligChar
-     *           ligature to replace left and right character
+     * @param left    left character
+     * @param right   right character
+     * @param ligChar ligature to replace left and right character
      */
     public void addLigature(char left, char right, char ligChar) {
         lig.put(new CharCouple(left, right), new Character(ligChar));
@@ -204,7 +198,7 @@ public class FontInfo {
 
     /**
      * @return the skew character of the font (for the correct positioning of
-     *         accents)
+     * accents)
      */
     public char getSkewChar() {
         return skewChar;
@@ -226,7 +220,7 @@ public class FontInfo {
         if (unicode == null)
             extensions[ch] = ext;
         else if (!unicode.containsKey(ch)) {
-            char s = (char)unicode.size();
+            char s = (char) unicode.size();
             unicode.put(ch, s);
             extensions[s] = ext;
         } else
@@ -237,7 +231,7 @@ public class FontInfo {
         if (unicode == null)
             metrics[c] = arr;
         else if (!unicode.containsKey(c)) {
-            char s = (char)unicode.size();
+            char s = (char) unicode.size();
             unicode.put(c, s);
             metrics[s] = arr;
         } else
@@ -248,7 +242,7 @@ public class FontInfo {
         if (unicode == null)
             nextLarger[ch] = new CharFont(larger, fontLarger);
         else if (!unicode.containsKey(ch)) {
-            char s = (char)unicode.size();
+            char s = (char) unicode.size();
             unicode.put(ch, s);
             nextLarger[s] = new CharFont(larger, fontLarger);
         } else
