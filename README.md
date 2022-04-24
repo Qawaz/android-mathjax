@@ -1,7 +1,8 @@
 # Compose Math Jax
 
 It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
-It does not have any dependencies except on
+It does not have any dependencies except on `androidx.annotations` for `@NonNull`
+
 ## Demo
 
 ![Screenshot_1631722134](https://user-images.githubusercontent.com/42442700/133469585-bb5a0a9e-5c47-4cda-806a-054c7a9ef22d.png)
