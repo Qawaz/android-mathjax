@@ -1,7 +1,7 @@
-# Compose Math Jax
+# Android Math Jax
 
 It uses JLatexMath , Its a fork of [noties/jlatexmath-android](https://github.com/noties/jlatexmath-android)
-It does not have any dependencies except on `androidx.annotations` for `@NonNull`
+It does not have any dependencies except on `androidx.annotations` for `@NonNull` , It also provides a Bitmap Builder Object which creates bitmap without converting to Drawable !
 
 ## Demo
 
